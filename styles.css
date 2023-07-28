@@ -118,6 +118,7 @@ a {
 	}
 
 }
+
 @media (max-width: 768px) {
   .main-nav {
       display: none;
@@ -501,25 +502,25 @@ a {
     font-weight: 600;
     margin-top: 0;
   }
-  .education {
+  .about {
     background: #000000;
     min-height: 80vh;
   }
-  .education .qoute {
+  .about .qoute {
     font-size: 1.5rem;
     text-align: center;
     font-family: "Nunito", sans-serif;
     font-weight: 600;
     margin-top: 0.5rem;
   }
-  .education .box-container {
+  .about .box-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
-  .education .box-container .box {
+  .about .box-container .box {
     display: flex;
     flex-direction: row;
     width: 80%;
@@ -532,21 +533,21 @@ a {
     transition: 0.3s;
     background: rgb(252, 252, 252);
   }
-  .education .box-container .box:hover {
+  .about .box-container .box:hover {
     transform: scale(1.03);
     box-shadow: 1rem 0.5rem 1.2rem rgba(0, 0, 0, 0.3);
   }
-  .education .box-container .box .image {
+  .about .box-container .box .image {
     flex: 1 1 20rem;
     width: 100%;
   }
-  .education .box-container .box img {
+  .about .box-container .box img {
     object-fit: cover;
     position: relative;
     width: 100%;
     height: 100%;
   }
-  .education .box-container .box .content {
+  .about .box-container .box .content {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -554,7 +555,7 @@ a {
     flex-wrap: wrap;
     flex: 1 1 70rem;
   }
-  .education .box-container .box .content h3 {
+  .about .box-container .box .content h3 {
     font-size: 2.5rem;
     color: #000000;
     padding: 0.5rem 0;
@@ -562,34 +563,34 @@ a {
     text-align: left;
     margin-left: 1rem;
   }
-  .education .box-container .box .content p {
+  .about .box-container .box .content p {
     color: #000000;
     font-size: 1.5rem;
     margin-left: 1rem;
     text-align: left;
   }
-  .education h4 {
+  .about h4 {
     font-size: 2rem;
     color: rgb(34, 109, 0);
-    text-align: left;
+    text-align: center;
     margin: 1rem;
     font-family: "Nunito", sans-serif;
     font-weight: 700;
   }
   
   @media screen and (max-width: 600px) {
-    .education .box-container .box {
+    .about .box-container .box {
       flex-direction: column;
       width: 100%;
     }
-    .education .box-container .box .image {
+    .about .box-container .box .image {
       width: 100%;
       height: 25rem;
     }
-    .education .box-container .box img {
+    .about .box-container .box img {
       width: 100%;
     }
-    .education .box-container .box .content {
+    .about .box-container .box .content {
       position: relative;
       display: flex;
       flex-direction: column;
@@ -597,7 +598,7 @@ a {
       flex-wrap: wrap;
       flex: 0;
     }
-    .education .btns {
+    .about .btns {
       margin-top: 2rem;
       margin-left: 1rem;
       margin-right: 1rem;
@@ -970,7 +971,7 @@ a {
   
   .card h1 {
     font-weight: 600;
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 0.5rem;
   }
   
@@ -984,3 +985,96 @@ a {
     box-shadow: 0 5px 15px rgba(255, 255, 255, 0.5);
   }
   
+  .overview .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .overview .img-container {
+    flex: 1;
+    max-width: 400px;
+  }
+  
+  .overview .img-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .overview .text-container {
+    flex: 1;
+    padding-left: 2rem;
+  }
+  
+  .overview h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .overview p {
+    margin-bottom: 2rem;
+  }
+
+  .overview .info-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  
+  .overview .table-container{
+    width: 70%; /* Adjust the width as needed */
+    flex: 1;}
+
+  .overview .list-container {
+    width: 30%; /* Adjust the width as needed */
+    flex: 0.6;}
+  
+  .overview table {
+  width: 100%;
+  margin-bottom: 2rem;
+  border-collapse: collapse;
+}
+  
+  .overview th, td {
+  padding: 1rem;
+  border: 0.1rem solid #ccc;
+  }
+  
+  .overview th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .overview ul {
+    font-size: 1.7rem;
+    list-style-type: disc;
+    margin-left: 6rem;
+    padding: 0;
+  }
+  
+  .overview ul li {
+    padding-bottom: 5px;  
+  }
+  
+  .overview ul li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+  
+  .overview ul li a:hover {
+    text-decoration: underline;
+  }
+  .vertical-line {
+    width: 0.1rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%; 
+    border: 2px solid #ccc;
+    z-index: 2; 
+    margin: 0 14rem;
+  }

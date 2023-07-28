@@ -1,0 +1,88 @@
+<section class="overview">
+    <h2><b>Overview</b></h2>
+    <hr style="height: 0.3rem; border-width:0; color:white; background-color:white; margin:0.5rem 0 0.7rem 0;">
+    <p>Welcome to Upwan Infra Developers Pvt. Ltd., a construction company with a passion for excellence and a commitment to delivering top-notch construction services across India. Since our inception in 2017, our mission has been to provide high-quality solutions tailored to our clients' needs, ensuring exceptional results in every project we undertake. With a team of seasoned construction professionals, we bring years of industry expertise, dedication, and innovation to each endeavor.</p>
+    <br>
+    <p>At Upwan, we understand that every project is distinct, which is why we focus on offering customized solutions that not only meet but exceed our clients' expectations. Whether it's a large-scale commercial construction venture or a small residential renovation, we approach every task with meticulous attention to detail and an unwavering dedication to quality.</p>
+    <br>
+    <p>As a locally owned and operated business, we take pride in contributing to the growth and development of our community. Our commitment to sustainability and environmental responsibility is reflected in our utilization of eco-friendly materials and our continuous efforts to reduce waste and energy consumption on our job sites.</p>
+    <br>
+    <p>At the core of our success lies the strong relationships we build with our clients. We place great emphasis on exceptional customer service, maintaining clear communication throughout every stage of the construction process, and providing transparent pricing to ensure our clients feel confident and informed.</p>
+    <br>
+    <p>If you are searching for a reliable and experienced construction company to turn your vision into reality, Upwan Infrastructure Pvt Ltd is the answer. Contact us today to discover more about our comprehensive range of services and how we can help you achieve your construction goals with utmost efficiency and excellence. Trust UPWAN to make your dreams come true in the world of construction.</p>
+  </section>
+  
+  <div class="second">
+    <table>
+      <tr>
+        <td>
+          <div class="x"></div>
+        </td>
+        <td>
+          <h2><b>Basic information</b></h2>
+        </td>
+      </tr>
+    </table>
+    <table cellspacing="20">
+      <tr>
+        <td><b>CIN</b></td>
+        <td>U45309UP2017PTC089684</td>
+      </tr>
+      <tr>
+        <td><b>Registration Number</b></td>
+        <td>089684</td>
+      </tr>
+      <tr>
+        <td><b>Date of Incorporation</b></td>
+        <td>Feb 03, 2017</td>
+      </tr>
+      <tr>
+        <td><b>Registered State</b></td>
+        <td>RoC-Kanpur</td>
+      </tr>
+      <tr>
+        <td><b>Category</b></td>
+        <td>Company limited by Shares</td>
+      </tr>
+      <tr>
+        <td><b>Class of Company</b></td>
+        <td>Private</td>
+      </tr>
+      <tr>
+        <td><b>Company Status (for e-filing)</b></td>
+        <td>Active</td>
+      </tr>
+      <tr>
+        <td><b>Office Address</b></td>
+        <td>R. K. PURAM COLONY, FATEHPUR, UP 212601 IN</td>
+      </tr>
+    </table>
+    <hr style="border: 1px solid black;">
+    <table>
+      <tr>
+        <td>
+          <div class="x"></div>
+        </td>
+        <td>
+          <h2><b>Documents</b></h2>
+        </td>
+      </tr>
+    </table>
+    <ul>
+      <li style="padding-bottom: 5px;"><a href="https://drive.google.com/file/d/1nnD_ECL7neVQi6ifqahUDMWQ7aSdrTWm/view?usp=sharing" style="color: black;">CERTIFICATE OF INCORPORATION</a></li>
+      <li style="padding-bottom: 5px;"><a href="https://docs.google.com/document/d/1KAoyvuYjGDWwmekg2OFUacyLXcRag9aT/edit?usp=sharing&ouid=105943555493959716737&rtpof=true&sd=true" style="color: black;">Company Profile of UIDPL</a></li>
+      <li style="padding-bottom: 5px;"><a href="https://drive.google.com/file/d/1an1v0da95gVoFvJl-tz-gZ_a_n4_xGwK/view?usp=sharing" style="color: black;">Ministry Of Corporate Affairs - MCA Services</a></li>
+      <li style="padding-bottom: 5px;"><a href="https://drive.google.com/file/d/1pE9n60uyrytgy31zUUiZCJ704_Kugi7q/view?usp=sharing" style="color: black;">MOA (Memorandum of Association)</a></li>
+      <li style="padding-bottom: 5px;"><a href="https://drive.google.com/file/d/1EvWKfn39GS3RHANiiuomryW-K5frd3Rl/view?usp=sharing" style="color: black;">Tin No. of Upwan Infra</a></li>
+      <li style="padding-bottom: 5px;"><a href="https://drive.google.com/file/d/1ZZorMIilnEXjaVskfuHWRsQimdV22nJM/view?usp=sharing" style="color: black;">Upwan GST NO.</a></li>
+    </ul>
+  </div>
+  
+
+
+  <div class="box">
+    <h3>quick links</h3>
+    <a href="#"><i class="fas fa-chevron-circle-right"></i> home</a>
+    <a href="about"><i class="fas fa-chevron-circle-right"></i> about</a>
+    <a href="projects"><i class="fas fa-chevron-circle-right"></i> Projects</a>
+  </div>
