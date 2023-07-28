@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -20,18 +20,18 @@
 
 <body>
   <header class="header">
-    <a href="../home/"><img src="img\u-nav.png" style="height: 6rem; margin:0%; padding:0 0.5rem;"></a>
+    <a href="home"><img src="img\u-nav.png" style="height: 6rem; margin:0%; padding:0 0.5rem;"></a>
     <button class="menu-icon" onclick="toggleMenu()">&#9776;</button>
     <ul class="main-nav" id="mainNav">
-      <li><a href="../home/" target="_blank">Home</a></li>
-      <li><a href="../about/" target="_blank">About</a></li>
+      <li><a href="#">Home</a></li>
+      <li><a href="about" target="_blank">About</a></li>
       <li>
         <div class="dropdown">
-          <a href="../projects/" target="_blank">Projects <i class="fa fa-caret-down"></i></a>
+          <a href="projects" target="_blank">Projects <i class="fa fa-caret-down"></i></a>
           <div class="dropdown-content">
-            <a href="../projects/">Highways</a>
-            <a href="../projects/#skills">Bridges</a>
-            <a href="../projects/#experience">Buildings</a>
+            <a href="projects\#H&B">Highways</a>
+            <a href="projects\#skills">Bridges</a>
+            <a href="projects\#experience">Buildings</a>
           </div>
         </div>
       </li>
@@ -43,10 +43,6 @@
 
   <section class="home" id="home">
     <div id="particles-js"></div>
-
-    <div class="image">
-      <img draggable="false" class="tilt" src="img\ub.png" alt="">
-    </div>
 
     <div class="content">
       <h2>Upwan Infra D<span>evelopers Pvt. Ltd.</span></h2>
@@ -71,16 +67,24 @@
       </div>
     </div>
 
+    <div class="image">
+      <img draggable="false" class="tilt" src="img\ub.png" alt="">
+    </div>
+
   </section>
 
   <hr style="height: 0.3rem; border-width:0;color:white;background-color:white">
 
   <section class="about" id="about">
-    <h2 class="heading"><i class="fas fa-user-alt"></i> About <span>Us</span></h2>
+    <h2 class="heading" style="padding: 2.5rem 0;"><i class="fas fa-user-alt"></i> About <span>Us</span></h2>
 
     <div class="row">
 
-
+      <div class="image">
+        <img draggable="false" class="tilt" src="img\ub.png" alt="">
+        <h1>Upwan Infra</h1>
+        <h2>Developers Pvt. Ltd.</h2>
+      </div>
 
       <div id="about" class="content">
         <h3>I'm Nihal</h3>
@@ -88,7 +92,7 @@
 
         <p>
           Welcome to UPWAN Infrastructure Pvt Ltd, a construction company with a passion for
-          excellence and a commitment to delivering top-notch construction services across India.
+          excellence and a commitment to delivering top-notch construction projects across India.
           Since our inception in 2017, our mission has been to provide high-quality solutions
           tailored to our clients' needs, ensuring exceptional results in every project we
           undertake. With a team of seasoned construction professionals, we bring years of
@@ -101,24 +105,49 @@
           </div>
         </div>
 
-        <div class="resumebtn">
-          <a href="about.html" target="_blank" class="btn"><span>More Info</span>
+        <div class="btn">
+          <a href="about" target="_blank" class="btn"><span>More Info</span>
             <i class="fas fa-chevron-right"></i>
           </a>
         </div>
       </div>
 
-      <div class="image">
-        <img draggable="false" class="tilt" src="img\ub.png" alt="">
-        <h1>Upwan Infra</h1>
-        <h2>Developers Pvt. Ltd.</h2>
-      </div>
     </div>
   </section>
 
   <hr style="height: 0.3rem; border-width:0;color:white;background-color:white">
 
-
+  <section class="projects">
+    <h2 class="heading" style="padding: 2.5rem 0;"><i class="fas fa-user-alt"></i> Proj<span>ects</span></h2>
+    <div class="card-grid">
+      <div class="card">
+        <a href="projects/#Bridges">
+          <img src="img/b.jpeg" alt="Graphic Design" />
+          <h1>Bridges <i class="fas fa-chevron-right"></i></h1>
+          <p></p>
+        </a>
+      </div>
+      <div class="card">
+        <a href="projects/#Highways">
+          <img src="img/hi.jpg" alt="Web Development" />
+          <h1>Highways <i class="fas fa-chevron-right"></i></h1>
+          <p></p>
+        </a>
+      </div>
+      <div class="card">
+        <a href="projects/#Buildings">
+          <img src="img/bi.jpg" alt="Content Writing" />
+          <h1>Buildings <i class="fas fa-chevron-right"></i></h1>
+          <p></p>
+        </a>
+      </div>
+    </div>
+    <div class="btn">
+      <a href="about" target="_blank" class="btn" style="background: #000000; box-shadow: 0px 5px 10px rgba(255, 255, 255, 0.6);"><span>View all</span>
+        <i class="fas fa-chevron-right"></i>
+      </a>
+    </div>
+  </section>
 
   <hr style="height: 0.3rem; border-width:0;color:white;background-color:white; margin:1rem 0; ">
 
@@ -169,25 +198,25 @@
   <a href="#" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-  integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js"
-  integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ=="
-  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js"
+    integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script src="../particles.min.js"></script>
-<script src="../app.js"></script>
+  <script src="../particles.min.js"></script>
+  <script src="../app.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"
-  integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg=="
-  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"
+    integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
-<script src="../script.js"></script>
+  <script src="../script.js"></script>
 
 </body>
 
