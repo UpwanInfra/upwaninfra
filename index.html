@@ -5,9 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="keywords"
-    content="Nihal Awasthi, portfolio, Nihal, full stack dev, personal portfolio lifecodes, portfolio design, portfolio website, personal portfolio" />
-  <meta name="description" content="Welcome to Nihal's Portfolio. Full-Stack Web Developer and Android App Developer" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
@@ -16,9 +15,50 @@
 
   <title>Upwan Infra Developers</title>
 
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: lightgray;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .loader img {
+      height: 100%;
+      width: 100%;
+    }
+
+    .disppear {
+      animation: vanish 3.75s forwards;
+    }
+
+    @keyframes vanish {
+      100% {
+        opacity: 10000;
+        visibility: hidden;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
+
+  <div class="loader">
+    <img src="img\upwan.gif" alt="load">
+  </div>
+
   <header class="header">
     <a href="home"><img src="img\u-nav.png" style="height: 6rem; margin:0%; padding:0 0.5rem;"></a>
     <button class="menu-icon" onclick="toggleMenu()">&#9776;</button>
@@ -87,20 +127,22 @@
       </div>
 
       <div id="about" class="content">
-        <br>
-        <br>
-        <p>Welcome to UPWAN Infrastructure Pvt Ltd, a construction company with a passion for 
-          excellence and a commitment to delivering top-notch construction projects across India. 
-          Since our inception in 2017, our mission has been to provide high-quality solutions 
-          tailored to our clients' needs, ensuring exceptional results in every project we undertake. 
-          With a team of seasoned construction professionals, we bring years of industry expertise, 
-          dedication, and innovation to each endeavor.</p>
-        
+        <h3>I'm Nihal</h3>
+        <span class="tag">Full Stack Developer</span>
+
+        <p>
+          Welcome to UPWAN Infrastructure Pvt Ltd, a construction company with a passion for
+          excellence and a commitment to delivering top-notch construction projects across India.
+          Since our inception in 2017, our mission has been to provide high-quality solutions
+          tailored to our clients' needs, ensuring exceptional results in every project we
+          undertake. With a team of seasoned construction professionals, we bring years of
+          industry expertise, dedication, and innovation to each endeavor.
+        </p>
         <div class="box-container">
-            <div class="box">
-              <p><span> email : </span> nihalawasthi498@gmail.com</p>
-              <p><span> place : </span> Indore, India - 452018</p>
-            </div>
+          <div class="box">
+            <p><span> email : </span> info@upwaninfra.com</p>
+            <p><span> place : </span> Indore, India - 452018</p>
+          </div>
         </div>
 
         <div class="btn">
@@ -110,7 +152,6 @@
         </div>
       </div>
 
-      
     </div>
   </section>
 
@@ -142,14 +183,14 @@
       </div>
     </div>
     <div class="btn">
-      <a href="projects" target="_blank" class="btn" style="background: #000000; box-shadow: 0px 5px 10px rgba(255, 255, 255, 0.6);"><span>View all</span>
+      <a href="about" target="_blank" class="btn"
+        style="background: #000000; box-shadow: 0px 5px 10px rgba(255, 255, 255, 0.6);"><span>View all</span>
         <i class="fas fa-chevron-right"></i>
       </a>
     </div>
   </section>
 
-
-  <hr style="height: 3px; border-width:0;color:white;background-color:white; margin:10px 0; ">
+  <hr style="height: 0.3rem; border-width:0;color:white;background-color:white; margin:1rem 0; ">
 
   <section class="footer">
 
@@ -161,9 +202,9 @@
 
       <div class="box">
         <h3>quick links</h3>
-        <a href="#"><i class="fas fa-chevron-circle-right"></i> Home</a>
-        <a href="about"><i class="fas fa-chevron-circle-right"></i> About</a>
-        <a href="projects"><i class="fas fa-chevron-circle-right"></i> Projects</a>
+        <a href="#"><i class="fas fa-chevron-circle-right"></i> home</a>
+        <a href="about"><i class="fas fa-chevron-circle-right"></i> about</a>
+        <a href="education"><i class="fas fa-chevron-circle-right"></i> education</a>
       </div>
 
       <div class="box">
@@ -181,15 +222,18 @@
           <a href="https://t.me/" class="fab fa-telegram-plane" aria-label="Telegram" target="_blank"></a>
         </div>
       </div>
+
+      <ul class="credits">
+        <li><a href="#">Upwan Infra Developers Pvt. Ltd. © 2017</a></li>
+        <li><a id="sub-footer-links" target="_blank">Privacy &amp; Legal</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="mailto:info@upwaninfra.com">Email</a></li>
+        <li><a href="" target="_blank">ESS</a></li>
+        <li style="display: block;">Website Best Viewed in Google Chrome in 1920 X 1080 Screen Resolution</li>
+      </ul>
+
     </div>
-    <ul class="credits">
-      <li><a href="#">Upwan Infra Developers Pvt. Ltd. © 2017</a></li>
-      <li><a id="sub-footer-links" target="_blank">Privacy &amp; Legal</a></li>
-      <li><a href="#">Contact</a></li>
-      <li><a href="mailto:info@upwaninfra.com">Email</a></li>
-      <li><a href="" target="_blank">ESS</a></li>
-      <li style="display: block;">Website Best Viewed in Google Chrome in 1920 X 1080 Screen Resolution</li>
-    </ul>
+
   </section>
 
   <a href="#" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
@@ -202,8 +246,18 @@
     integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-  <script src="particles.min.js"></script>
-  <script src="app.js"></script>
+  <script>
+    let loader = document.querySelector('.loader');
+
+    window.addEventListener("load", vanish);
+
+    function vanish() {
+      loader.classList.add("disppear")
+    }
+  </script>
+
+  <script src="../particles.min.js"></script>
+  <script src="../app.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"
     integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg=="
@@ -213,7 +267,7 @@
 
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
-  <script src="script.js"></script>
+  <script src="../script.js"></script>
 
 </body>
 
