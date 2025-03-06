@@ -1,225 +1,1156 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" content="">
+  <meta name="theme-color" content="#ffffff">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="keywords"
-    content="Nihal Awasthi, portfolio, Nihal, full stack dev, personal portfolio lifecodes, portfolio design, portfolio website, personal portfolio" />
-  <meta name="description" content="Welcome to Nihal's Portfolio. Full-Stack Web Developer and Android App Developer" />
-  <link rel="stylesheet" href="../styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="icon" type="image/ico" href="img\ico.ico?">
-
   <title>Upwan Infra Developers</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+
+  <script id="header-scripts">
+    if (window.scripts && window.scripts.head) {
+      document.getElementById('header-scripts').outerHTML = window.scripts.head;
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script type="application/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                DEFAULT: '#0a192f',
+                50: '#f8f8f8',
+                100: '#e8e8e8',
+                200: '#d3d3d3',
+                300: '#a3a3a3',
+                400: '#737373',
+                500: '#525252',
+                600: '#404040',
+                700: '#262626',
+                800: '#171717',
+                900: '#0a0a0a',
+                950: '#030303',
+              },
+              secondary: {
+                DEFAULT: '#312e81',
+                50: '#f8f8f8',
+                100: '#e8e8e8',
+                200: '#d3d3d3',
+                300: '#a3a3a3',
+                400: '#737373',
+                500: '#525252',
+                600: '#404040',
+                700: '#262626',
+                800: '#171717',
+                900: '#0a0a0a',
+                950: '#030303',
+              },
+              accent: {
+                DEFAULT: '#ffffff',
+                50: '#f8f8f8',
+                100: '#e8e8e8',
+                200: '#d3d3d3',
+                300: '#a3a3a3',
+                400: '#737373',
+                500: '#525252',
+                600: '#404040',
+                700: '#262626',
+                800: '#171717',
+                900: '#0a0a0a',
+                950: '#030303',
+              },
+            },
+            fontFamily: {
+              sans: ['Arial, sans-serif', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'],
+              heading: ['Arial, sans-serif', 'Inter', 'system-ui', 'sans-serif'],
+              body: ['Arial, sans-serif', 'Inter', 'system-ui', 'sans-serif'],
+            },
+            spacing: {
+              '18': '4.5rem',
+              '22': '5.5rem',
+              '30': '7.5rem',
+            },
+            maxWidth: {
+              '8xl': '88rem',
+              '9xl': '96rem',
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-in',
+              'fade-out': 'fadeOut 0.5s ease-out',
+              'slide-up': 'slideUp 0.5s ease-out',
+              'slide-down': 'slideDown 0.5s ease-out',
+              'slide-left': 'slideLeft 0.5s ease-out',
+              'slide-right': 'slideRight 0.5s ease-out',
+              'scale-in': 'scaleIn 0.5s ease-out',
+              'scale-out': 'scaleOut 0.5s ease-out',
+              'spin-slow': 'spin 3s linear infinite',
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'bounce-slow': 'bounce 3s infinite',
+              'float': 'float 3s ease-in-out infinite',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              fadeOut: {
+                '0%': { opacity: '1' },
+                '100%': { opacity: '0' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(20px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideDown: {
+                '0%': { transform: 'translateY(-20px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideLeft: {
+                '0%': { transform: 'translateX(20px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              slideRight: {
+                '0%': { transform: 'translateX(-20px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0.9)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              },
+              scaleOut: {
+                '0%': { transform: 'scale(1.1)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+            },
+            aspectRatio: {
+              'portrait': '3/4',
+              'landscape': '4/3',
+              'ultrawide': '21/9',
+            },
+          },
+        },
+        variants: {
+          extend: {
+            opacity: ['disabled'],
+            cursor: ['disabled'],
+            backgroundColor: ['active', 'disabled'],
+            textColor: ['active', 'disabled'],
+          },
+        },
+      }
+    });
+  </script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" type="image/x-icon" href="img/ico.ico">
+
+  <style>
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: Arial, sans-serif, Inter, system-ui, sans-serif;
+    }
+
+    body {
+      font-family: Arial, sans-serif, Inter, system-ui, sans-serif;
+    }
+  </style>
 </head>
 
-<body>
-  <header class="header">
-    <a href="../home/"><img src="img\u-nav.png" style="height: 6rem; margin:0%; padding:0 0.5rem;"></a>
-    <button class="menu-icon" onclick="toggleMenu()">&#9776;</button>
-    <ul class="main-nav" id="mainNav">
-      <li><a href="../home/" target="_blank">Home</a></li>
-      <li><a href="../about/" target="_blank">About</a></li>
-      <li>
-        <div class="dropdown">
-          <a href="../projects/" target="_blank">Projects <i class="fa fa-caret-down"></i></a>
-          <div class="dropdown-content">
-            <a href="../projects/">Highways</a>
-            <a href="../projects/#skills">Bridges</a>
-            <a href="../projects/#experience">Buildings</a>
-          </div>
-        </div>
-      </li>
-      <li><a href="../contact" target="_blank">Contact</a></li>
-    </ul>
-  </header>
+<body class="antialiased text-gray-800 min-h-screen flex flex-col">
+  <a href="#main-content"
+    class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-white focus:text-black">
+    Skip to main content
+  </a>
 
-  <hr style="height: 0.3rem; border-width:0;color:white;background-color:white; margin:0.5rem 0;">
-
-  <section class="overview">
-    <h1 class="heading">About<span>Us</span></h1>
-
-    <hr style="height: 0.3rem; border-width:0; color:white; background-color:white; margin:1rem 0; ">
-
-    <div class="container">
-      <div class="img-container">
-        <img src="img\img.png" alt="Company Image">
-      </div>
-      <div class="text-container">
-        <h2><b>Overview</b></h2>
-        <p>Welcome to Upwan Infra Developers Pvt. Ltd., a construction company with a passion for excellence and a commitment to delivering top-notch construction services across India. Since our inception in 2017, our mission has been to provide high-quality solutions tailored to our clients' needs, ensuring exceptional results in every project we undertake. With a team of seasoned construction professionals, we bring years of industry expertise, dedication, and innovation to each endeavor.</p>
-        <p>At Upwan, we understand that every project is distinct, which is why we focus on offering customized solutions that not only meet but exceed our clients' expectations. Whether it's a large-scale commercial construction venture or a small residential renovation, we approach every task with meticulous attention to detail and an unwavering dedication to quality.</p>
-        <p>As a Nationaly operated business, we take pride in contributing to the growth and development of our country. Our commitment to sustainability and environmental responsibility is reflected in our utilization of eco-friendly materials and our continuous efforts to reduce waste and energy consumption on our job sites.</p>
-        <p>At the core of our success lies the strong relationships we build with our clients. We place great emphasis on exceptional customer service, maintaining clear communication throughout every stage of the construction process, and providing transparent pricing to ensure our clients feel confident and informed.</p>
-      </div>
-    </div>
-
-    <hr style="height: 0.3rem; border-width:0; color:white; background-color:white; margin:1rem 0; ">
-    
-    <div class="info-container">
-      <div class="table-container">
-        <h2 class="heading" style="font-size: 2rem;">Basic <span>Info</span></h2>
-        <hr style="height: 0.3rem; border-width:0; color:white; background-color:white; margin:1rem 0; ">
-        <table cellspacing="20">
-          <tr>
-            <td><b>CIN</b></td>
-            <td>U45309UP2017PTC089684</td>
-          </tr>
-          <tr>
-            <td><b>Registration Number</b></td>
-            <td>089684</td>
-          </tr>
-          <tr>
-            <td><b>Date of Incorporation</b></td>
-            <td>Feb 03, 2017</td>
-          </tr>
-          <tr>
-            <td><b>Registered State</b></td>
-            <td>RoC-Kanpur</td>
-          </tr>
-          <tr>
-            <td><b>Category</b></td>
-            <td>Company limited by Shares</td>
-          </tr>
-          <tr>
-            <td><b>Class of Company</b></td>
-            <td>Private</td>
-          </tr>
-          <tr>
-            <td><b>Company Status (for e-filing)</b></td>
-            <td>Active</td>
-          </tr>
-          <tr>
-            <td><b>Office Address</b></td>
-            <td>R. K. PURAM COLONY, FATEHPUR, UP 212601 IN</td>
-          </tr>
-        </table>
-      </div>
-      <div class="vertical-line"></div>
-      <div class="list-container">
-        <h2 class="heading" style="font-size: 2rem;">Doc<span>uments</span></h2>
-        <hr style="height: 0.3rem; border-width:0; color:white; background-color:white; margin:1rem 0; ">
-        <ul>
-          <li><a href="Docs\CERTIFICATE OF INCORPORATION.PDF" target="_blank">CERTIFICATE OF INCORPORATION</a></li>
-          <li><a href="Docs\Company Profile of UIDPL.docx" target="_blank">Company Profile of UIDPL</a></li>
-          <li><a href="Docs\Ministry Of Corporate Affairs - MCA Services.pdf" target="_blank">Ministry Of Corporate Affairs - MCA Services</a></li>
-          <li><a href="Docs\MOA (Memorendom of Asociation).pdf" target="_blank">MOA (Memorandum of Association)</a></li>
-          <li><a href="Docs\Tin No. of Upwan Infra.pdf" target="_blank">Tin No. of Upwan Infra</a></li>
-          <li><a href="Docs\Upwan Incoprporation.PDF" target="_blank">Upwan GST NO.</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <hr style="height: 0.3rem; border-width:0; color:white; background-color:white; margin:1rem 0; ">
-  
-  </section>
-  
-
-  <hr style="height: 0.3rem; border-width:0; color:white; background-color:white; margin:1rem 0 0 0; ">
-
-  <section class="about" id="education">
-    <h1 class="heading">Our <span>Directors</span></h1>
-    <div class="card-grid">
-      <div class="card">
-        <img src="img\d1.png" style="width: 70%; padding-bottom: 1rem;" alt="" />
-        <h1>Lallan Prasad Awasthi</h1>
-        <p>Founder and Managing Director of Upwan Infra Developers Pvt. Ltd.</p>
-        <h4>51% Shareholder</h4>
-      </div>
-      <div class="card">
-        <img src="img\temp.png" style="width: 70%; padding-bottom: 1rem;" alt="" />
-        <h1>Ranjana Devi Awasthi</h1>
-        <p>Founder and Managing Director of Upwan Infra Developers Pvt. Ltd.</p>
-        <h4>37% Shareholder</h4>
-      </div>
-      <div class="card">
-        <img src="img\temp.png" style="width: 70%; padding-bottom: 1rem;" alt="" />
-        <h1>Rajendra Prasad Awasthi</h1>
-        <p>Executive Director of Upwan Infra Developers Pvt. Ltd.</p>
-        <h4>12% Shareholder</h4>
-      </div>
-    </div>
-    <div class="btn" style="padding-bottom: 2rem;">
-      <a href="directors" target="_blank" class="btn"><span>More Info</span>
-        <i class="fas fa-chevron-right"></i>
-      </a>
-    </div>
-  </section>
-
-  <hr style="height: 0.3rem; border-width:0;color:white;background-color:white; margin:1rem 0; ">
-
-  <section class="footer">
-
-    <div class="box-container">
-
-      <div class="box">
-        <img src="img\img.png" class="tilt">
-      </div>
-
-      <div class="box">
-        <h3>quick links</h3>
-        <a href="../home/"><i class="fas fa-chevron-circle-right"></i> Home</a>
-        <a href="../about/"><i class="fas fa-chevron-circle-right"></i> About</a>
-        <a href="../projects/"><i class="fas fa-chevron-circle-right"></i> Projects</a>
-      </div>
-
-      <div class="box">
-        <h3>contact info</h3>
-        <p> <i class="fas fa-phone"></i>+91 635-048-6317</p>
-        <p> <i class="fas fa-envelope"></i>nihalawasthi498@gmail.com</p>
-        <p> <i class="fas fa-map-marked-alt"></i>Indore, India-452018</p>
-        <div class="share">
-
-          <a href="https://www.linkedin.com/in/nihal-awasthi-16a644251" class="fab fa-linkedin" aria-label="LinkedIn"
-            target="_blank"></a>
-          <a href="https://github.com/Morpheus498" class="fab fa-github" aria-label="GitHub" target="_blank"></a>
-          <a href="mailto:nihalawasthi498@gmail.com" class="fas fa-envelope" aria-label="Mail" target="_blank"></a>
-          <a href="https://twitter.com/nihal-awasthi" class="fab fa-twitter" aria-label="Twitter" target="_blank"></a>
-          <a href="https://t.me/" class="fab fa-telegram-plane" aria-label="Telegram" target="_blank"></a>
-        </div>
-      </div>
-
-      <ul class="credits">
-        <li><a href="#">Upwan Infra Developers Pvt. Ltd. © 2017</a></li>
-        <li><a id="sub-footer-links" target="_blank">Privacy &amp; Legal</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="mailto:info@upwaninfra.com">Email</a></li>
-        <li><a href="" target="_blank">ESS</a></li>
-        <li style="display: block;">Website Best Viewed in Google Chrome in 1920 X 1080 Screen Resolution</li>
-      </ul>
-
-    </div>
-
-  </section>
-
-  <a href="#" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js"
-    integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <script src="../particles.min.js"></script>
-  <script src="../app.js"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"
-    integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <script src="https://unpkg.com/scrollreveal"></script>
-
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
-  <script src="../script.js"></script>
+  <main id="main-content" class="flex-1 relative h-full">
+  </main>
 
 </body>
 
 </html>
+<script>window.projectId = "fb65cd22-1c36-42c2-a445-04f5c5ca0560";</script>
+<div id='RolloutPageContent'>
+  <element id="a53334f2-622a-41e7-b5f5-eb8d8bfe1d68" data-section-id="a53334f2-622a-41e7-b5f5-eb8d8bfe1d68">
+
+
+
+    <div id="root">
+
+
+      <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileProjectsButton = document.getElementById('mobile-projects-button');
+        const mobileProjectsMenu = document.getElementById('mobile-projects-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+          const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+          mobileMenuButton.setAttribute('aria-expanded', !expanded);
+          mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileProjectsButton.addEventListener('click', () => {
+          const expanded = mobileProjectsButton.getAttribute('aria-expanded') === 'true';
+          mobileProjectsButton.setAttribute('aria-expanded', !expanded);
+          mobileProjectsMenu.classList.toggle('hidden');
+          mobileProjectsButton.querySelector('svg').classList.toggle('rotate-180');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (event) => {
+          if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
+            mobileMenu.classList.add('hidden');
+          }
+        });
+      </script>
+    </div>
+
+  </element>
+  <element id="c6f11523-9211-4b39-a1d8-c895f640e39f" data-section-id="c6f11523-9211-4b39-a1d8-c895f640e39f">
+
+
+
+    <div id="root">
+      <section id="hero" class="bg-neutral-800 text-white py-16 md:py-24 relative overflow-hidden">
+        <!-- Background particles effect -->
+        <div id="particles-js" class="absolute inset-0 opacity-30"></div>
+
+        <div class="container mx-auto px-4 relative z-10" id="el-vej72gex">
+          <div class="flex flex-col items-center text-center mb-10" id="el-urdqpe6h">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 animate__animated animate__fadeInDown" id="el-1ktl9pqy">
+              About <span class="text-[#312e81]" id="el-hfufh3ct">Us</span>
+            </h1>
+            <div class="w-24 h-1 bg-[#312e81] mb-8 animate__animated animate__fadeIn animate__delay-1s"
+              id="el-xn58hftc"></div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8 items-center" id="el-jwtk0rxa">
+            <div class="animate__animated animate__fadeInLeft" id="el-wqtyn2i4">
+              <img src="img/img.png" alt="Upwan Infra Developers Company"
+                class="rounded-lg shadow-2xl max-w-full h-auto transform transition duration-500 hover:scale-105"
+                id="el-i2sw2ql7">
+            </div>
+
+            <div class="animate__animated animate__fadeInRight" id="el-grtjn9fc">
+              <h2 class="text-3xl font-bold mb-6" id="el-30no7do6">Our <span class="text-[#312e81]"
+                  id="el-5u9klzlv">Story</span></h2>
+              <p class="text-lg mb-6 text-neutral-200" id="el-tuhfl3f5">
+                Welcome to Upwan Infra Developers Pvt. Ltd., a construction company with a passion for excellence and a
+                commitment to delivering top-notch construction services across India since our inception in 2017.
+              </p>
+              <p class="text-lg mb-6 text-neutral-200" id="el-vw370o0j">
+                With our team of seasoned construction professionals, we bring years of industry expertise, dedication,
+                and innovation to each endeavor, ensuring exceptional results in every project we undertake.
+              </p>
+              <div class="flex flex-wrap gap-4 mt-8" id="el-aj786oc7">
+                <a href="#overview"
+                  class="px-6 py-3 bg-[#0a192f] border-2 border-[#312e81] text-[#fff] rounded-md hover:bg-[#312e81] hover:text-neutral-900 transition duration-300 flex items-center"
+                  id="el-hy9n8il5">
+                  Learn More
+                  <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg" id="el-6fplx21g">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"
+                      id="el-mtcfdd96"></path>
+                  </svg>
+                </a>
+                <a href="/#contact"
+                  class="px-6 py-3 bg-[#312e81] text-white rounded-md hover:bg-transparent hover:text-[#312e81] border-2 border-[#312e81] transition duration-300"
+                  id="el-5gg870mj">
+                  Contact Us
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll down indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce" id="el-8eqw1mmf">
+          <a href="#overview" class="text-[#312e81]" aria-label="Scroll to overview" id="el-tset4vx9">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg" id="el-febbk7lz">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                id="el-r4s5advv"></path>
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- Particles.js script -->
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          if (typeof particlesJS !== 'undefined') {
+            particlesJS('particles-js', {
+              particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#ffffff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: false },
+                size: { value: 3, random: true },
+                line_linked: {
+                  enable: true,
+                  distance: 150,
+                  color: "#ffffff",
+                  opacity: 0.4,
+                  width: 1
+                },
+                move: {
+                  enable: true,
+                  speed: 3,
+                  direction: "none",
+                  random: false,
+                  straight: false,
+                  out_mode: "out",
+                  bounce: false
+                }
+              },
+              interactivity: {
+                detect_on: "canvas",
+                events: {
+                  onhover: { enable: true, mode: "repulse" },
+                  onclick: { enable: true, mode: "push" },
+                  resize: true
+                }
+              },
+              retina_detect: true
+            });
+          }
+        });
+      </script>
+    </div>
+
+  </element>
+  <element id="15f0ee6e-cc3e-4b55-a7dc-eaf4e29e3915" data-section-id="15f0ee6e-cc3e-4b55-a7dc-eaf4e29e3915">
+
+
+
+    <div id="root">
+      <section id="overview" class="py-20 bg-neutral-900 text-white">
+        <div class="container mx-auto px-4" id="el-os6qcwbz">
+          <div class="max-w-4xl mx-auto mb-16" id="el-zt6ljp0y">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4" id="el-7klj5sa3">
+              About <span class="text-[#312e81]" id="el-1p7df52s">Our Company</span>
+            </h2>
+            <div class="h-1 w-24 bg-[#312e81] mx-auto mb-10" id="el-89vz8fj4"></div>
+
+            <div class="grid md:grid-cols-2 gap-10 items-center mb-16" id="el-v9l5vvkj">
+              <div class="animate__animated animate__fadeInLeft" id="el-q5697okq">
+                <img src="img/img.png" alt="Upwan Infra Developers Company" class="rounded-lg shadow-xl w-full h-auto"
+                  id="el-md766d6v">
+              </div>
+
+              <div class="animate__animated animate__fadeInRight" id="el-dl14op8q">
+                <h3 class="text-2xl font-bold mb-4" id="el-1mi0avlf">Our Mission &amp; Vision</h3>
+                <p class="mb-4 text-neutral-300" id="el-ywg6aw5s">
+                  Welcome to Upwan Infra Developers Pvt. Ltd., a construction company with a passion for excellence and
+                  a commitment to delivering top-notch construction services across India. Since our inception in 2017,
+                  our mission has been to provide high-quality solutions tailored to our clients' needs.
+                </p>
+                <p class="mb-4 text-neutral-300" id="el-urb90srf">
+                  With a team of seasoned construction professionals, we bring years of industry expertise, dedication,
+                  and innovation to each endeavor, ensuring exceptional results in every project we undertake.
+                </p>
+
+                <div class="grid grid-cols-2 gap-4 mt-8" id="el-0mxj5dgd">
+                  <div class="p-4 bg-neutral-800 rounded-lg text-center" id="el-hzryst2r">
+                    <span class="text-[#312e81] text-4xl font-bold block" id="el-dmb4iq9k">8+</span>
+                    <span class="text-sm text-neutral-400" id="el-563va9vl">Years Experience</span>
+                  </div>
+                  <div class="p-4 bg-neutral-800 rounded-lg text-center" id="el-y5qtanfr">
+                    <span class="text-[#312e81] text-4xl font-bold block" id="el-phfk43uf">30+</span>
+                    <span class="text-sm text-neutral-400" id="el-oxdhidqq">Projects Completed</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-neutral-800 p-8 rounded-xl shadow-xl mb-16" id="el-z9k6cnnj">
+              <h3 class="text-2xl font-bold mb-6 text-center" id="el-jeu89jj1">Our <span class="text-[#312e81]"
+                  id="el-rfolv5rv">Approach</span></h3>
+
+              <div class="grid md:grid-cols-2 gap-8" id="el-3fme5yhg">
+                <div class="bg-neutral-700 p-6 rounded-lg hover:bg-neutral-600 transition duration-300"
+                  id="el-l4lc1g56">
+                  <h4 class="text-xl font-semibold mb-3" id="el-wh43t4hm">
+                    <i class="fas fa-check-circle text-[#312e81] mr-2" id="el-umwsvzou"></i>
+                    Customized Solutions
+                  </h4>
+                  <p class="text-neutral-300" id="el-xgk3p9qz">
+                    At Upwan, we understand that every project is distinct, which is why we focus on offering customized
+                    solutions that not only meet but exceed our clients' expectations.
+                  </p>
+                </div>
+
+                <div class="bg-neutral-700 p-6 rounded-lg hover:bg-neutral-600 transition duration-300"
+                  id="el-8v27e0zd">
+                  <h4 class="text-xl font-semibold mb-3" id="el-6fx0lkjq">
+                    <i class="fas fa-leaf text-[#312e81] mr-2" id="el-mw02sz5k"></i>
+                    Sustainability Focus
+                  </h4>
+                  <p class="text-neutral-300" id="el-wq2ki1ut">
+                    As a nationally operated business, we utilize eco-friendly materials and continuously work to reduce
+                    waste and energy consumption on our job sites.
+                  </p>
+                </div>
+
+                <div class="bg-neutral-700 p-6 rounded-lg hover:bg-neutral-600 transition duration-300"
+                  id="el-8ywea7zf">
+                  <h4 class="text-xl font-semibold mb-3" id="el-luolz6i5">
+                    <i class="fas fa-handshake text-[#312e81] mr-2" id="el-gkyfcnhg"></i>
+                    Client Relationships
+                  </h4>
+                  <p class="text-neutral-300" id="el-omnhanoh">
+                    At the core of our success lies the strong relationships we build with our clients, maintaining
+                    clear communication throughout every stage of the construction process.
+                  </p>
+                </div>
+
+                <div class="bg-neutral-700 p-6 rounded-lg hover:bg-neutral-600 transition duration-300"
+                  id="el-okak35f8">
+                  <h4 class="text-xl font-semibold mb-3" id="el-c6xyvu92">
+                    <i class="fas fa-search-dollar text-[#312e81] mr-2" id="el-5al95xdf"></i>
+                    Transparent Pricing
+                  </h4>
+                  <p class="text-neutral-300" id="el-bb6ieyle">
+                    We provide transparent pricing to ensure our clients feel confident and informed throughout their
+                    journey with us.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-x-16 gap-y-10" id="el-e40b6mxz">
+              <div class="animate__animated animate__fadeInUp" id="el-wttoh927">
+
+
+              </div>
+
+              <div class="animate__animated animate__fadeInUp animate__delay-1s" id="el-mlv9b5sy">
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container mx-auto px-4" id="el-ptuwavi4">
+          <div class="max-w-5xl mx-auto" id="el-7lcpefcp">
+            <div class="text-center mb-12" id="el-8p5oi1np">
+              <h2 class="text-3xl md:text-4xl font-bold mb-4" id="el-q8iz6jks">Company <span class="text-[#312e81]"
+                  id="el-zojscwyz">Information</span></h2>
+              <div class="h-1 w-24 bg-[#312e81] mx-auto" id="el-gaapnd99"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-1 gap-10" id="el-ijj5k7dq">
+              <!-- Company Stats -->
+              <div class="bg-neutral-900 rounded-xl p-6 shadow-xl animate__animated animate__fadeInLeft"
+                id="el-1awykm2s">
+                <h3 class="text-2xl font-bold mb-6 flex items-center" id="el-xi1dz9cy">
+                  <i class="fas fa-building text-[#312e81] mr-3" id="el-ud5qjfvi"></i>
+                  Corporate Details
+                </h3>
+
+                <div class="overflow-hidden rounded-lg" id="el-t65c82sp">
+                  <table class="w-full border-collapse" id="el-3obz1b4k">
+                    <tbody id="el-tcui108v">
+                      <tr class="border-b border-neutral-700 hover:bg-neutral-800 transition-colors" id="el-oar0xeei">
+                        <td class="py-4 px-4 font-bold" id="el-ixtqu9gm">CIN</td>
+                        <td class="py-4 px-4 text-neutral-300" id="el-gnvlxi76">U45309UP2017PTC089684</td>
+                      </tr>
+                      <tr class="border-b border-neutral-700 hover:bg-neutral-800 transition-colors" id="el-ls38eqha">
+                        <td class="py-4 px-4 font-bold" id="el-krb89l4j">Registration Number</td>
+                        <td class="py-4 px-4 text-neutral-300" id="el-57ttxn35">089684</td>
+                      </tr>
+                      <tr class="border-b border-neutral-700 hover:bg-neutral-800 transition-colors" id="el-99500rrq">
+                        <td class="py-4 px-4 font-bold" id="el-nv1w288x">Date of Incorporation</td>
+                        <td class="py-4 px-4 text-neutral-300" id="el-nrw1qaag">Feb 03, 2017</td>
+                      </tr>
+                      <tr class="border-b border-neutral-700 hover:bg-neutral-800 transition-colors" id="el-axkn5odn">
+                        <td class="py-4 px-4 font-bold" id="el-kwhutyot">Registered State</td>
+                        <td class="py-4 px-4 text-neutral-300" id="el-3oqcrqv2">RoC-Kanpur</td>
+                      </tr>
+                      <tr class="border-b border-neutral-700 hover:bg-neutral-800 transition-colors" id="el-yurwu2so">
+                        <td class="py-4 px-4 font-bold" id="el-osyijazc">Category</td>
+                        <td class="py-4 px-4 text-neutral-300" id="el-ji4sad1b">Company limited by Shares</td>
+                      </tr>
+                      <tr class="border-b border-neutral-700 hover:bg-neutral-800 transition-colors" id="el-ypp9a7pk">
+                        <td class="py-4 px-4 font-bold" id="el-a2za0w84">Class of Company</td>
+                        <td class="py-4 px-4 text-neutral-300" id="el-ne27ollq">Private</td>
+                      </tr>
+                      <tr class="border-b border-neutral-700 hover:bg-neutral-800 transition-colors" id="el-rl2t1fkr">
+                        <td class="py-4 px-4 font-bold" id="el-p3lgz3oi">Company Status</td>
+                        <td class="py-4 px-4 text-neutral-300" id="el-5ymut5o0">
+                          <span class="bg-green-800 text-green-200 px-2 py-1 rounded-full text-xs"
+                            id="el-qmwwi1c5">Active</span>
+                        </td>
+                      </tr>
+                      <tr class="hover:bg-neutral-800 transition-colors" id="el-qwy3da77">
+                        <td class="py-4 px-4 font-bold" id="el-2ik1l24u">Office Address</td>
+                        <td class="py-4 px-4 text-neutral-300" id="el-hktsscox">
+                          <div class="flex items-start" id="el-s9qnzn8h">
+                            <i class="fas fa-map-marker-alt text-[#312e81] mt-1 mr-2" id="el-qs86uhm5"></i>
+                            <span id="el-ohr697l5">R. K. PURAM COLONY, FATEHPUR, UP 212601 IN</span>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </element>
+
+  <element id="b8c1c269-5655-41b3-838f-b5a58625fd66" data-section-id="b8c1c269-5655-41b3-838f-b5a58625fd66">
+
+
+
+    <div id="root">
+      <section id="documents" class="py-20 bg-neutral-900 text-white">
+        <div class="container mx-auto px-4" id="el-gs6egtp8">
+          <div class="max-w-5xl mx-auto" id="el-4mkzqx2t">
+            <div class="text-center mb-12" id="el-wh92o102">
+              <h2 class="text-3xl md:text-4xl font-bold mb-4" id="el-iqblj0oo">Important <span class="text-[#312e81]"
+                  id="el-vdafgn7p">Documents</span></h2>
+              <div class="h-1 w-24 bg-[#312e81] mx-auto mb-6" id="el-2fidz4sj"></div>
+              <p class="text-neutral-300 max-w-2xl mx-auto" id="el-04b6v1yn">
+                Access our official company documentation and certificates. These documents verify our legal status and
+                operation credentials.
+              </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="el-tqwa40t8">
+              <!-- Document Card 1 -->
+              <div
+                class="bg-neutral-800 rounded-lg overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
+                id="el-so5bc732">
+                <div class="p-6 border-b border-neutral-700" id="el-z3e0pih3">
+                  <div class="w-16 h-16 rounded-full bg-neutral-700 flex items-center justify-center mx-auto mb-4"
+                    id="el-zqiraxz5">
+                    <i class="fas fa-certificate text-4xl text-[#312e81]" id="el-kdqf8kea"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-center mb-2" id="el-vvsgo1ls">Certificate of Incorporation</h3>
+                  <p class="text-sm text-neutral-400 text-center" id="el-oxgfsg50">Official company registration
+                    document</p>
+                </div>
+                <div class="px-6 py-4" id="el-jb1ojgbw">
+                  <ul class="text-sm" id="el-6vh1cfzo">
+                    <li class="flex items-center py-1" id="el-qr18i0pw">
+                      <i class="fas fa-check-circle text-[#312e81] mr-2" id="el-84t6coo8"></i>
+                      <span id="el-pomtegyt">Issued: February 2017</span>
+                    </li>
+                    <li class="flex items-center py-1" id="el-07undz8l">
+                      <i class="fas fa-check-circle text-[#312e81] mr-2" id="el-gfqk427w"></i>
+                      <span id="el-yomluvvr">Legal verification included</span>
+                    </li>
+                    <li class="flex items-center py-1" id="el-a989ve7e">
+                      <i class="fas fa-check-circle text-[#312e81] mr-2" id="el-io9kbcxe"></i>
+                      <span id="el-ng2kopu2">PDF format (2.1 MB)</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="px-6 pb-6" id="el-frzxbmku">
+                  <a href="Docs/CERTIFICATE OF INCORPORATION.PDF" target="_blank"
+                    class="inline-block w-full bg-neutral-700 hover:bg-[#312e81] hover:text-neutral-900 text-white font-medium py-2 px-4 rounded transition duration-300 text-center"
+                    id="el-3e7vm1f6">
+                    <i class="fas fa-download mr-2" id="el-4jg3kl94"></i> Download
+                  </a>
+                </div>
+              </div>
+
+              <!-- Document Card 2 -->
+              <div
+                class="bg-neutral-800 rounded-lg overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
+                id="el-nppezzau">
+                <div class="p-6 border-b border-neutral-700" id="el-i3c6334o">
+                  <div class="w-16 h-16 rounded-full bg-neutral-700 flex items-center justify-center mx-auto mb-4"
+                    id="el-4eqlh56i">
+                    <i class="fas fa-file-alt text-4xl text-[#312e81]" id="el-hi7mryge"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-center mb-2" id="el-p5bj3gxm">Company Profile</h3>
+                  <p class="text-sm text-neutral-400 text-center" id="el-fr9jqiof">Complete profile of UIDPL</p>
+                </div>
+                <div class="px-6 py-4" id="el-ppj6ro0e">
+                  <ul class="text-sm" id="el-z5cr1xdk">
+                    <li class="flex items-center py-1" id="el-s46mg0ny">
+                      <i class="fas fa-check-circle text-[#312e81] mr-2" id="el-w8qmno4n"></i>
+                      <span id="el-ucr7axiz">History &amp; evolution</span>
+                    </li>
+                    <li class="flex items-center py-1" id="el-xkffd6of">
+                      <i class="fas fa-check-circle text-[#312e81] mr-2" id="el-ohre0gue"></i>
+                      <span id="el-dy8wrzeh">Services &amp; capabilities</span>
+                    </li>
+                    <li class="flex items-center py-1" id="el-iu5ibyy6">
+                      <i class="fas fa-check-circle text-[#312e81] mr-2" id="el-9kfv07h1"></i>
+                      <span id="el-t0irthc9">Word format (3.4 MB)</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="px-6 pb-6" id="el-yb36uxho">
+                  <a href="Docs/Company Profile of UIDPL.docx" target="_blank"
+                    class="inline-block w-full bg-neutral-700 hover:bg-[#312e81] hover:text-neutral-900 text-white font-medium py-2 px-4 rounded transition duration-300 text-center"
+                    id="el-syu3bwhr">
+                    <i class="fas fa-download mr-2" id="el-c55dh3mj"></i> Download
+                  </a>
+                </div>
+              </div>
+
+              <!-- Document Card 3 -->
+              <div
+                class="bg-neutral-800 rounded-lg overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
+                id="el-5u5c49zw">
+                <div class="p-6 border-b border-neutral-700" id="el-l55z00ap">
+                  <div class="w-16 h-16 rounded-full bg-neutral-700 flex items-center justify-center mx-auto mb-4"
+                    id="el-6j60gpi5">
+                    <i class="fas fa-landmark text-4xl text-[#312e81]" id="el-q1sllnpb"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-center mb-2" id="el-dxzz6e8w">MCA Services</h3>
+                  <p class="text-sm text-neutral-400 text-center" id="el-lj503f4k">Ministry Of Corporate Affairs</p>
+                </div>
+                <div class="px-6 py-4" id="el-g36jigpy">
+                  <ul class="text-sm" id="el-fmdljotr">
+                    <li class="flex items-center py-1" id="el-v40g3r05">
+                      <i class="fas fa-check-circle text-[#312e81] mr-2" id="el-yufpp790"></i>
+                      <span id="el-7ewbyf9w">Government verification</span>
+                    </li>
+                    <li class="flex items-center py-1" id="el-cx4scfb3">
+                      <i class="fas fa-check-circle text-[#312e81] mr-2" id="el-je9pgm6g"></i>
+                      <span id="el-p2prees5">Regulatory compliance</span>
+                    </li>
+                    <li class="flex items-center py-1" id="el-ue8m9b5x">
+                      <i class="fas fa-check-circle text-[#312e81] mr-2" id="el-inv52jnf"></i>
+                      <span id="el-ipsg2gdh">PDF format (1.8 MB)</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="px-6 pb-6" id="el-5tda9tdj">
+                  <a href="Docs/Ministry Of Corporate Affairs - MCA Services.pdf" target="_blank"
+                    class="inline-block w-full bg-neutral-700 hover:bg-[#312e81] hover:text-neutral-900 text-white font-medium py-2 px-4 rounded transition duration-300 text-center"
+                    id="el-azikba3z">
+                    <i class="fas fa-download mr-2" id="el-4kjyznug"></i> Download
+                  </a>
+                </div>
+              </div>
+
+              <!-- Document Card 4 -->
+              <div
+                class="bg-neutral-800 rounded-lg overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
+                id="el-a1lb6jqj">
+                <div class="p-6 border-b border-neutral-700" id="el-srt101x2">
+                  <div class="w-16 h-16 rounded-full bg-neutral-700 flex items-center justify-center mx-auto mb-4"
+                    id="el-j0es15tn">
+                    <i class="fas fa-file-contract text-4xl text-[#312e81]" id="el-ejlt7d38"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-center mb-2" id="el-b906cf1i">Memorandum of Association</h3>
+                  <p class="text-sm text-neutral-400 text-center" id="el-19ah1wd9">MOA Document</p>
+                </div>
+                <div class="px-6 py-4" id="el-rx1if76p">
+                  <ul class="text-sm" id="el-egxreg2c">
+                    <li class="flex items-center py-1" id="el-3nwgr0cr">
+                      <i class="fas fa-check-circle text-[#312e81] mr-2" id="el-f7gj1se7"></i>
+                      <span id="el-2mcfsaqx">Company objectives</span>
+                    </li>
+                    <li class="flex items-center py-1" id="el-vjqrvfcq">
+                      <i class="fas fa-check-circle text-[#312e81] mr-2" id="el-9vbgbilc"></i>
+                      <span id="el-ec8djlz9">Rules &amp; regulations</span>
+                    </li>
+                    <li class="flex items-center py-1" id="el-ezqhlrbe">
+                      <i class="fas fa-check-circle text-[#312e81] mr-2" id="el-qsss7p90"></i>
+                      <span id="el-2g5k7mxb">PDF format (4.2 MB)</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="px-6 pb-6" id="el-fw94nixw">
+                  <a href="Docs/MOA (Memorendom of Asociation).pdf" target="_blank"
+                    class="inline-block w-full bg-neutral-700 hover:bg-[#312e81] hover:text-neutral-900 text-white font-medium py-2 px-4 rounded transition duration-300 text-center"
+                    id="el-vnc0p4c0">
+                    <i class="fas fa-download mr-2" id="el-75zy91mk"></i> Download
+                  </a>
+                </div>
+              </div>
+
+              <!-- Document Card 5 -->
+              <div
+                class="bg-neutral-800 rounded-lg overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
+                id="el-lpliqokq">
+                <div class="p-6 border-b border-neutral-700" id="el-h4gaulqz">
+                  <div class="w-16 h-16 rounded-full bg-neutral-700 flex items-center justify-center mx-auto mb-4"
+                    id="el-327eolos">
+                    <i class="fas fa-id-card text-4xl text-[#312e81]" id="el-bw18wxb3"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-center mb-2" id="el-ueg43s2u">TIN Certificate</h3>
+                  <p class="text-sm text-neutral-400 text-center" id="el-7a0wcx2m">Tax Identification Number</p>
+                </div>
+                <div class="px-6 py-4" id="el-0jm2nf28">
+                  <ul class="text-sm" id="el-txq6iudh">
+                    <li class="flex items-center py-1" id="el-qlc4ul8h">
+                      <i class="fas fa-check-circle text-[#312e81] mr-2" id="el-7uxxgibm"></i>
+                      <span id="el-s0ftbpd7">Tax registration proof</span>
+                    </li>
+                    <li class="flex items-center py-1" id="el-vtvz6woy">
+                      <i class="fas fa-check-circle text-[#312e81] mr-2" id="el-1b0orhol"></i>
+                      <span id="el-dvjg3l7n">Issued by tax authority</span>
+                    </li>
+                    <li class="flex items-center py-1" id="el-femn4dzh">
+                      <i class="fas fa-check-circle text-[#312e81] mr-2" id="el-330avv22"></i>
+                      <span id="el-omulwhh2">PDF format (1.3 MB)</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="px-6 pb-6" id="el-00jmqr1q">
+                  <a href="Docs/Tin No. of Upwan Infra.pdf" target="_blank"
+                    class="inline-block w-full bg-neutral-700 hover:bg-[#312e81] hover:text-neutral-900 text-white font-medium py-2 px-4 rounded transition duration-300 text-center"
+                    id="el-04q21itf">
+                    <i class="fas fa-download mr-2" id="el-2psuz3dz"></i> Download
+                  </a>
+                </div>
+              </div>
+
+              <!-- Document Card 6 -->
+              <div
+                class="bg-neutral-800 rounded-lg overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
+                id="el-0yew4bs3">
+                <div class="p-6 border-b border-neutral-700" id="el-y907we3i">
+                  <div class="w-16 h-16 rounded-full bg-neutral-700 flex items-center justify-center mx-auto mb-4"
+                    id="el-mhu01fke">
+                    <i class="fas fa-receipt text-4xl text-[#312e81]" id="el-tuttune9"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-center mb-2" id="el-6sj3xn2v">GST Registration</h3>
+                  <p class="text-sm text-neutral-400 text-center" id="el-kx7q2zvt">Goods and Services Tax</p>
+                </div>
+                <div class="px-6 py-4" id="el-wke4kkw8">
+                  <ul class="text-sm" id="el-l3a7na4r">
+                    <li class="flex items-center py-1" id="el-0uxdp4ve">
+                      <i class="fas fa-check-circle text-[#312e81] mr-2" id="el-z0t1n2ax"></i>
+                      <span id="el-v0qym0bd">GST number verification</span>
+                    </li>
+                    <li class="flex items-center py-1" id="el-kqzz939o">
+                      <i class="fas fa-check-circle text-[#312e81] mr-2" id="el-4g13dthx"></i>
+                      <span id="el-xbxg1nw8">Tax compliance document</span>
+                    </li>
+                    <li class="flex items-center py-1" id="el-7lxpdgln">
+                      <i class="fas fa-check-circle text-[#312e81] mr-2" id="el-55qwldxc"></i>
+                      <span id="el-ww9oh6r7">PDF format (0.8 MB)</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="px-6 pb-6" id="el-nuwdk15e">
+                  <a href="Docs/Upwan Incoprporation.PDF" target="_blank"
+                    class="inline-block w-full bg-neutral-700 hover:bg-[#312e81] hover:text-neutral-900 text-white font-medium py-2 px-4 rounded transition duration-300 text-center"
+                    id="el-mlf9dp5w">
+                    <i class="fas fa-download mr-2" id="el-h56rul6d"></i> Download
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-12 text-center" id="el-r9ooz6tv">
+              <p class="text-neutral-400 mb-6" id="el-e6c3qu3y">Need assistance with any other documents? Contact our
+                corporate office.</p>
+              <a href="/#contact"
+                class="inline-flex items-center px-6 py-3 border-2 border-[#312e81] text-[#312e81] rounded-md hover:bg-[#312e81] hover:text-neutral-900 transition duration-300"
+                id="el-19bf6dtz">
+                <i class="fas fa-envelope mr-2" id="el-uacz5nrb"></i> Contact Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </element>
+  <element id="6bfcb433-cf84-4a4d-b289-6806d35ca8d5" data-section-id="6bfcb433-cf84-4a4d-b289-6806d35ca8d5">
+
+
+
+    <div id="root">
+      <section id="directors" class="bg-neutral-900 py-20 text-white">
+        <div class="container mx-auto px-4" id="el-8m5p5751">
+          <div class="max-w-6xl mx-auto" id="el-yab2uchc">
+            <div class="text-center mb-16" id="el-zfuqshtu">
+              <h2 class="text-3xl md:text-4xl font-bold mb-4" id="el-8j8a4kpc">Our <span class="text-[#312e81]"
+                  id="el-yvssa5pw">Leadership</span></h2>
+              <div class="h-1 w-24 bg-[#312e81] mx-auto mb-6" id="el-9sntsoim"></div>
+              <p class="text-neutral-300 max-w-2xl mx-auto" id="el-3h2ure58">
+                Meet the visionary leaders behind Upwan Infra Developers who guide our company with their expertise and
+                strategic vision.
+              </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8" id="el-2k1um6d5">
+              <!-- Director 1 -->
+              <div
+                class="bg-neutral-800 rounded-xl overflow-hidden shadow-xl transform transition duration-500 hover:scale-105 animate__animated animate__fadeInUp"
+                id="el-54j3dbg2">
+                <div class="relative" id="el-0e0ujfht">
+                  <div class="aspect-w-1 aspect-h-1 bg-neutral-700" id="el-m39j09r9">
+                    <img src="img/d1.png" alt="Lallan Prasad Awasthi" class="object-cover w-full h-full"
+                      id="el-ytxa6fi8">
+                  </div>
+                  <div
+                    class="absolute top-0 right-0 mt-4 mr-4 bg-[#312e81] text-white px-3 py-1 rounded-full text-sm"
+                    id="el-euyrz6qa">
+                    51% Shareholder
+                  </div>
+                </div>
+                <div class="p-6" id="el-k8j8qerm">
+                  <h3 class="text-2xl font-bold mb-2" id="el-00oyld6k">Lallan Prasad Awasthi</h3>
+                  <p class="text-[#312e81] font-medium mb-4" id="el-n5udhj7v">Founder and Managing Director</p>
+                  <p class="text-neutral-300 mb-6" id="el-nxug71zr">
+                    With over 25 years of experience in infrastructure development, Lallan Prasad Awasthi leads Upwan
+                    Infra Developers with vision and technical expertise.
+                  </p>
+
+                  <div class="border-t border-neutral-700 pt-4 mt-4" id="el-5cb3jb7n">
+                    <div class="flex justify-between items-center" id="el-d45kbqrh">
+                      <div class="space-x-3" id="el-ng5mata9">
+                        <a href="#" class="inline-block text-neutral-400 hover:text-[#312e81] transition-colors"
+                          aria-label="LinkedIn" id="el-zazquhzh">
+                          <i class="fab fa-linkedin text-lg" id="el-c4nsae5j"></i>
+                        </a>
+                        <a href="#" class="inline-block text-neutral-400 hover:text-[#312e81] transition-colors"
+                          aria-label="Email" id="el-fmqoiygj">
+                          <i class="fas fa-envelope text-lg" id="el-6iyg9em6"></i>
+                        </a>
+                      </div>
+                      <button class="text-sm text-[#312e81] hover:underline focus:outline-none" type="button"
+                        id="el-f7imyh4m">
+                        View Profile
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Director 2 -->
+              <div
+                class="bg-neutral-800 rounded-xl overflow-hidden shadow-xl transform transition duration-500 hover:scale-105 animate__animated animate__fadeInUp animate__delay-1s"
+                id="el-w3a9n5ol">
+                <div class="relative" id="el-wy9k9wbc">
+                  <div class="aspect-w-1 aspect-h-1 bg-neutral-700" id="el-whighq0q">
+                    <img src="img/temp.png" alt="Ranjana Devi Awasthi" class="object-cover w-full h-full"
+                      id="el-nv2rv6ij">
+                  </div>
+                  <div
+                    class="absolute top-0 right-0 mt-4 mr-4 bg-[#312e81] text-white px-3 py-1 rounded-full text-sm"
+                    id="el-ws09kxcb">
+                    37% Shareholder
+                  </div>
+                </div>
+                <div class="p-6" id="el-bdbg4hie">
+                  <h3 class="text-2xl font-bold mb-2" id="el-34z6h924">Ranjana Devi Awasthi</h3>
+                  <p class="text-[#312e81] font-medium mb-4" id="el-ps4husoh">Founder and Managing Director</p>
+                  <p class="text-neutral-300 mb-6" id="el-gaocbqhl">
+                    Ranjana Devi Awasthi brings strategic insight and operational excellence to the company, overseeing
+                    administration and financial planning.
+                  </p>
+
+                  <div class="border-t border-neutral-700 pt-4 mt-4" id="el-eg2nbzfc">
+                    <div class="flex justify-between items-center" id="el-mv8rp9xn">
+                      <div class="space-x-3" id="el-t0rysd98">
+                        <a href="#" class="inline-block text-neutral-400 hover:text-[#312e81] transition-colors"
+                          aria-label="LinkedIn" id="el-dja02su1">
+                          <i class="fab fa-linkedin text-lg" id="el-wxhmpth8"></i>
+                        </a>
+                        <a href="#" class="inline-block text-neutral-400 hover:text-[#312e81] transition-colors"
+                          aria-label="Email" id="el-gmsanqq8">
+                          <i class="fas fa-envelope text-lg" id="el-610irblh"></i>
+                        </a>
+                      </div>
+                      <button class="text-sm text-[#312e81] hover:underline focus:outline-none" type="button"
+                        id="el-75lv1dhi">
+                        View Profile
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Director 3 -->
+              <div
+                class="bg-neutral-800 rounded-xl overflow-hidden shadow-xl transform transition duration-500 hover:scale-105 animate__animated animate__fadeInUp animate__delay-2s"
+                id="el-17ue3n9u">
+                <div class="relative" id="el-lci4h8n1">
+                  <div class="aspect-w-1 aspect-h-1 bg-neutral-700" id="el-f57n5632">
+                    <img src="img/temp.png" alt="Rajendra Prasad Awasthi" class="object-cover w-full h-full"
+                      id="el-dflumonu">
+                  </div>
+                  <div
+                    class="absolute top-0 right-0 mt-4 mr-4 bg-[#312e81] text-white px-3 py-1 rounded-full text-sm"
+                    id="el-mrskfkmd">
+                    12% Shareholder
+                  </div>
+                </div>
+                <div class="p-6" id="el-n4xhdzm8">
+                  <h3 class="text-2xl font-bold mb-2" id="el-o5nwqyzu">Rajendra Prasad Awasthi</h3>
+                  <p class="text-[#312e81] font-medium mb-4" id="el-4perv91k">Executive Director</p>
+                  <p class="text-neutral-300 mb-6" id="el-w6rlvzqc">
+                    Rajendra Prasad Awasthi supervises project execution and quality control, ensuring all developments
+                    meet the highest industry standards.
+                  </p>
+
+                  <div class="border-t border-neutral-700 pt-4 mt-4" id="el-8n6w9sja">
+                    <div class="flex justify-between items-center" id="el-ym1jm389">
+                      <div class="space-x-3" id="el-blne0d1x">
+                        <a href="#" class="inline-block text-neutral-400 hover:text-[#312e81] transition-colors"
+                          aria-label="LinkedIn" id="el-7jkf2kof">
+                          <i class="fab fa-linkedin text-lg" id="el-a9wanl3k"></i>
+                        </a>
+                        <a href="#" class="inline-block text-neutral-400 hover:text-[#312e81] transition-colors"
+                          aria-label="Email" id="el-8qrmqcgq">
+                          <i class="fas fa-envelope text-lg" id="el-vfcdukha"></i>
+                        </a>
+                      </div>
+                      <button class="text-sm text-[#312e81] hover:underline focus:outline-none" type="button"
+                        id="el-lbxses1n">
+                        View Profile
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-16 text-center" id="el-mkgedcz6">
+              <a href="directors" target="_blank"
+                class="inline-flex items-center px-6 py-3 bg-neutral-800 border-2 border-[#312e81] text-[#fff] rounded-md hover:bg-[#312e81] hover:text-neutral-900 transition duration-300 group"
+                id="el-2rm68mua">
+                <span id="el-m0snw10z">More About Our Directors</span>
+                <i class="fas fa-chevron-right ml-2 transform group-hover:translate-x-1 transition-transform"
+                  id="el-wnyhm1ad"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </element>
+  <element id="84c8c72e-9c55-4221-9f71-9d9d0a653608" data-section-id="84c8c72e-9c55-4221-9f71-9d9d0a653608">
+
+
+
+    <div id="root">
+      <footer id="footer" class="bg-neutral-900 text-white py-12">
+        <div class="container mx-auto px-4" id="el-1yb2e4cu">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="el-nyy50yhw" style="padding: 0px;">
+            <!-- Company Logo and Info -->
+            <div class="flex flex-col justify-center items-center md:items-start" id="el-6654tl6i">
+              <img src="img/img.png" alt="Upwan Infra Logo"
+                class="w-48 h-auto rounded-lg shadow-lg hover:shadow-xl left-1/2 transition duration-300 mb-4"
+                id="el-f8djrgx9">
+              <p class="text-gray-400 text-sm mt-4 text-center md:text-left" id="el-9183lh34">
+                Building excellence since 2017. Quality infrastructure for a growing India.
+              </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div id="el-89jscrex">
+              <h3 class="text-xl font-bold mb-4 border-b border-gray-700 pb-2" id="el-zj5dvgzf">Quick Links</h3>
+              <ul class="space-y-2" id="el-j2405r2a">
+                <li id="el-a8fw79ru">
+                  <a href="#home" class="text-gray-400 hover:text-white transition duration-300 flex items-center"
+                    id="el-v8an10ms">
+                    <i class="fas fa-chevron-circle-right mr-2 text-gray-500" id="el-pm0tz167"></i> Home
+                  </a>
+                </li>
+                <li id="el-p5n3kmos">
+                  <a href="#about" class="text-gray-400 hover:text-white transition duration-300 flex items-center"
+                    id="el-jj5wquvs">
+                    <i class="fas fa-chevron-circle-right mr-2 text-gray-500" id="el-8dzcm9is"></i> About
+                  </a>
+                </li>
+                <li id="el-gm70r5rk">
+                  <a href="#projects" class="text-gray-400 hover:text-white transition duration-300 flex items-center"
+                    id="el-q1ha4rh7">
+                    <i class="fas fa-chevron-circle-right mr-2 text-gray-500" id="el-gxwx9tj3"></i> Projects
+                  </a>
+                </li>
+                <li id="el-7d0eyse2">
+                  <a href="#services" class="text-gray-400 hover:text-white transition duration-300 flex items-center"
+                    id="el-jpya3v97">
+                    <i class="fas fa-chevron-circle-right mr-2 text-gray-500" id="el-3euuvm4i"></i> Services
+                  </a>
+                </li>
+                <li id="el-5ioj99a9">
+                  <a href="/#contact" class="text-gray-400 hover:text-white transition duration-300 flex items-center"
+                    id="el-1eficwzz">
+                    <i class="fas fa-chevron-circle-right mr-2 text-gray-500" id="el-rjg1eqi3"></i> Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div id="el-jm24imsy">
+              <h3 class="text-xl font-bold mb-4 border-b border-gray-700 pb-2" id="el-0unw302k">Contact Info</h3>
+              <ul class="space-y-3" id="el-un8yx024">
+                <li class="flex items-start" id="el-g9oifvkd">
+                  <i class="fas fa-phone text-gray-500 mt-1 mr-3" id="el-idzj2rlc"></i>
+                  <span class="text-gray-400" id="el-m1wtd9uc">+91 635-048-6317</span>
+                </li>
+                <li class="flex items-start" id="el-lcl1631r">
+                  <i class="fas fa-envelope text-gray-500 mt-1 mr-3" id="el-a5no579n"></i>
+                  <a href="mailto:info@upwaninfra.com" class="text-gray-400 hover:text-white transition duration-300"
+                    id="el-1f6hku2h">info@upwaninfra.com</a>
+                </li>
+                <li class="flex items-start" id="el-gvacbx59">
+                  <i class="fas fa-map-marked-alt text-gray-500 mt-1 mr-3" id="el-xneluzja"></i>
+                  <span class="text-gray-400" id="el-i3ww519x">Indore, India - 452018</span>
+                </li>
+              </ul>
+
+              <div class="mt-6" id="el-bdv8rjkj">
+                <h4 class="text-lg font-semibold mb-3" id="el-r3lfo2au">Follow Us</h4>
+                <div class="flex space-x-3" id="el-0fucvgb8">
+                  <a href="https://www.linkedin.com/in/nihal-awasthi-16a644251" target="_blank"
+                    class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition duration-300"
+                    aria-label="LinkedIn" id="el-3xjno5i9">
+                    <i class="fab fa-linkedin-in" id="el-rj9jbxas"></i>
+                  </a>
+                  <a href="https://github.com/UpwanInfra" target="_blank"
+                    class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition duration-300"
+                    aria-label="GitHub" id="el-bbaw9t0d">
+                    <i class="fab fa-github" id="el-z0nz18sx"></i>
+                  </a>
+                  <a href="mailto:nihalawasthi498@gmail.com" target="_blank"
+                    class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition duration-300"
+                    aria-label="Mail" id="el-i2zqt2l3">
+                    <i class="fas fa-envelope" id="el-etjzixq6"></i>
+                  </a>
+                  <a href="https://www.instagram.com/upwan_infra_developers/" target="_blank"
+                    class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition duration-300"
+                    aria-label="Instagram" id="el-ayiwabiv">
+                    <i class="fab fa-instagram" id="el-asxho4xn"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer Bottom -->
+          <div class="mt-12 pt-6 border-t border-gray-800" id="el-02lp5rs2">
+            <ul class="flex flex-wrap justify-center space-x-4 mb-4" id="el-rknwujqu">
+              <li id="el-dzh92x1m"><a href="#" class="text-gray-400 hover:text-white transition duration-300"
+                  id="el-wza1xv42">Upwan Infra Developers Pvt. Ltd. © 2017</a></li>
+              <li id="el-e5re482f"><a href="#privacy" class="text-gray-400 hover:text-white transition duration-300"
+                  id="el-6h5t56c7">Privacy &amp; Legal</a></li>
+              <li id="el-6cbd0l7t"><a href="/#contact" class="text-gray-400 hover:text-white transition duration-300"
+                  id="el-yomtr7k2">Contact</a></li>
+              <li id="el-z2qmly38"><a href="mailto:info@upwaninfra.com"
+                  class="text-gray-400 hover:text-white transition duration-300" id="el-qg77ech7">Email</a></li>
+            </ul>
+
+            <p class="text-center text-gray-500 text-sm" id="el-b4qa5zvt">
+              Website Best Viewed in Google Chrome in 1920 X 1080 Screen Resolution
+            </p>
+          </div>
+        </div>
+
+        <!-- Scroll to top button -->
+        <button id="scroll-top"
+          class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-indigo-900 hover:bg-indigo-800 text-white flex items-center justify-center shadow-lg transition duration-300 focus:outline-none opacity-100"
+          aria-label="Scroll to top">
+          <i class="fas fa-angle-up text-xl" id="el-egta060f"></i>
+        </button>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            // Scroll to top functionality
+            const scrollTopButton = document.getElementById('scroll-top');
+
+            window.addEventListener('scroll', function () {
+              if (window.pageYOffset > 300) {
+                scrollTopButton.classList.add('opacity-100');
+                scrollTopButton.classList.remove('opacity-0');
+              } else {
+                scrollTopButton.classList.add('opacity-0');
+                scrollTopButton.classList.remove('opacity-100');
+              }
+            });
+
+            scrollTopButton.addEventListener('click', function () {
+              window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+              });
+            });
+          });
+        </script>
+      </footer>
+    </div>
+
+  </element>
+</div>
+<div id="page_complete">
+  <script src="/edit/edit.js"></script>
+  <script>
+    console.log('Page complete');
+    document.addEventListener('DOMContentLoaded', function () {
+      const hamburgerButtons = document.querySelectorAll('.hamburger-menu, [aria-label="Toggle menu"], [data-toggle="menu"], .mobile-menu-button');
+
+      hamburgerButtons.forEach(button => {
+        if (button) {
+          button.addEventListener('click', function () {
+            const menu = this.nextElementSibling ||
+              document.querySelector(this.getAttribute('data-target')) ||
+              document.querySelector('.mobile-menu, .menu-items, .nav-menu');
+
+            if (menu) {
+              if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                this.setAttribute('aria-expanded', 'true');
+              } else {
+                menu.classList.add('hidden');
+                this.setAttribute('aria-expanded', 'false');
+              }
+
+              const bars = this.querySelectorAll('div, span, .bar');
+              if (bars.length >= 2) {
+                this.classList.toggle('active');
+              }
+            }
+          });
+        }
+      });
+
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({ type: 'iframe-content-loaded' }, '*');
+      }
+    });
+  </script>
+  </body>
+
+  </html>

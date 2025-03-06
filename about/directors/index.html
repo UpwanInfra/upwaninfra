@@ -1,168 +1,617 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en" class="scroll-smooth">
+   <head>
+      <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <meta name="description" content="">
+      <meta name="theme-color" content="#ffffff">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="keywords"
-    content="Nihal Awasthi, portfolio, Nihal, full stack dev, personal portfolio lifecodes, portfolio design, portfolio website, personal portfolio" />
-  <meta name="description" content="Welcome to Nihal's Portfolio. Full-Stack Web Developer and Android App Developer" />
-  <link rel="stylesheet" href="../../styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="icon" type="image/ico" href="../img/ico.ico">
+      <title>Directors</title>
+      <!-- SEO Description -->
+      <meta name="description" content="">
 
-  <title>Upwan Infra Developers</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <!-- Performance optimization: Preload critical resources -->
+      <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+      
+      <!-- Header Scripts -->
+      <script id="header-scripts">
+        // This script tag will be replaced with actual scripts.head content
+        if (window.scripts && window.scripts.head) {
+          document.getElementById('header-scripts').outerHTML = window.scripts.head;
+        }
+      </script>
 
-</head>
+      <!-- Preconnect -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<body>
-  <header class="header">
-    <a href="../home/"><img src="../img/u-nav.png" style="height: 6rem; margin:0%; padding:0 0.5rem;"></a>
-    <button class="menu-icon" onclick="toggleMenu()">&#9776;</button>
-    <ul class="main-nav" id="mainNav">
-      <li><a href="../../home/" target="_blank">Home</a></li>
-      <li><a href="../../about/" target="_blank">About</a></li>
-      <li>
-        <div class="dropdown">
-          <a href="../../projects/" target="_blank">Projects <i class="fa fa-caret-down"></i></a>
-          <div class="dropdown-content">
-            <a href="../projects/">Highways</a>
-            <a href="../projects/#skills">Bridges</a>
-            <a href="../projects/#experience">Buildings</a>
-          </div>
-        </div>
-      </li>
-      <li><a href="../../contact/" target="_blank">Contact</a></li>
-    </ul>
+      <!-- Font stylesheet -->
+
+      <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+
+      <!-- Core CSS -->
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script>
+      // render the settings object
+      //console.log('settings', [object Object]);
+      document.addEventListener('DOMContentLoaded', function() {
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                primary: {
+                  DEFAULT: '#ffffff',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8', 
+                  200: '#d3d3d3',
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+                secondary: {
+                  DEFAULT: '#000000',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3', 
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+                accent: {
+                  DEFAULT: '#0066cc',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3',
+                  300: '#a3a3a3', 
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+              },
+              fontFamily: {
+                sans: ['Arial, sans-serif', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                heading: ['Arial, sans-serif', 'Inter', 'system-ui', 'sans-serif'],
+                body: ['Arial, sans-serif', 'Inter', 'system-ui', 'sans-serif'],
+              },
+              spacing: {
+                '18': '4.5rem',
+                '22': '5.5rem',
+                '30': '7.5rem',
+              },
+              maxWidth: {
+                '8xl': '88rem',
+                '9xl': '96rem',
+              },
+              animation: {
+                'fade-in': 'fadeIn 0.5s ease-in',
+                'fade-out': 'fadeOut 0.5s ease-out',
+                'slide-up': 'slideUp 0.5s ease-out',
+                'slide-down': 'slideDown 0.5s ease-out',
+                'slide-left': 'slideLeft 0.5s ease-out',
+                'slide-right': 'slideRight 0.5s ease-out',
+                'scale-in': 'scaleIn 0.5s ease-out',
+                'scale-out': 'scaleOut 0.5s ease-out',
+                'spin-slow': 'spin 3s linear infinite',
+                'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'bounce-slow': 'bounce 3s infinite',
+                'float': 'float 3s ease-in-out infinite',
+              },
+              keyframes: {
+                fadeIn: {
+                  '0%': { opacity: '0' },
+                  '100%': { opacity: '1' },
+                },
+                fadeOut: {
+                  '0%': { opacity: '1' },
+                  '100%': { opacity: '0' },
+                },
+                slideUp: {
+                  '0%': { transform: 'translateY(20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideDown: {
+                  '0%': { transform: 'translateY(-20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideLeft: {
+                  '0%': { transform: 'translateX(20px)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                slideRight: {
+                  '0%': { transform: 'translateX(-20px)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                scaleIn: {
+                  '0%': { transform: 'scale(0.9)', opacity: '0' },
+                  '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                scaleOut: {
+                  '0%': { transform: 'scale(1.1)', opacity: '0' },
+                  '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                float: {
+                  '0%, 100%': { transform: 'translateY(0)' },
+                  '50%': { transform: 'translateY(-10px)' },
+                },
+              },
+              aspectRatio: {
+                'portrait': '3/4',
+                'landscape': '4/3',
+                'ultrawide': '21/9',
+              },
+            },
+          },
+          variants: {
+            extend: {
+              opacity: ['disabled'],
+              cursor: ['disabled'],
+              backgroundColor: ['active', 'disabled'],
+              textColor: ['active', 'disabled'],
+            },
+          },
+        }
+      });
+      </script>
+
+      <!-- Utilities and Components -->
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
+      
+      <!-- Optimized Font Loading -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      
+      <!-- Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+      <!-- Dynamic Meta Tags -->
+      <meta name="description" content="">
+      <meta name="keywords" content="">
+      <meta name="robots" content="">
+      <meta name="google-site-verification" content="">
+      <meta name="baidu-verification" content="">
+      <meta name="yandex-verification" content="">
+      <meta name="bing-verification" content="">
+      <meta property="og:title" content="">
+      <meta property="og:description" content="">
+      <meta property="og:image" content="">
+      <meta property="og:type" content="website">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:site_name" content="">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="">
+      <meta name="twitter:description" content="">
+      <meta name="twitter:image" content="">
+    
+      
+      <!-- Font Links -->
+     
+      <link rel="icon" type="image/x-icon" href="../img/ico.ico">
+
+      <style>
+        h1, h2, h3, h4, h5, h6 {
+          font-family: Arial, sans-serif, Inter, system-ui, sans-serif;
+        }
+        body {
+          font-family: Arial, sans-serif, Inter, system-ui, sans-serif;
+        }
+      </style>
+   </head>
+   <body class="antialiased text-gray-800 min-h-screen flex flex-col">
+      <!-- Skip to main content link for accessibility -->
+      <a href="#main-content" 
+         class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-white focus:text-black">
+         Skip to main content
+      </a>
+
+      <!-- Main content area -->
+      <main id="main-content" class="flex-1 relative h-full">
+        <!-- Content will be injected here -->
+      </main>
+
+      <!-- {bodyScripts} -->
+   </body>
+</html><script>window.projectId = "c41ebfc7-0eba-44cf-8b9c-741fa456484c";</script><div id='RolloutPageContent'><element id="d1d198bd-3b53-4512-8eed-0b32c3e85616" data-section-id="d1d198bd-3b53-4512-8eed-0b32c3e85616">
+
+
+                
+<div id="root">
+  <header id="header" class="bg-white shadow-md fixed w-full z-50">
+    
+    
+    <!-- Mobile menu, show/hide based on menu state -->
+    <div id="mobileMenu" class="lg:hidden hidden fixed inset-0 bg-white z-40 flex flex-col pt-24 pb-6 px-6 h-screen w-full">
+      <nav id="el-psfcx0ck">
+        <ul class="space-y-4" id="el-99nr1m4v">
+          <li id="el-9kod5vsz">
+            <a href="#" class="text-neutral-800 hover:text-neutral-600 font-medium text-xl block py-2 transition-colors border-b border-neutral-200" id="el-59bpd84j">Home</a>
+          </li>
+          <li id="el-kyla754g">
+            <a href="#about" class="text-neutral-800 hover:text-neutral-600 font-medium text-xl block py-2 transition-colors border-b border-neutral-200" id="el-hzkhxkr9">About</a>
+          </li>
+          <li class="py-2 border-b border-neutral-200" id="el-l8eeuc26">
+            <button type="button" class="text-neutral-800 hover:text-neutral-600 font-medium text-xl w-full text-left flex justify-between items-center" id="mobileProjectsMenu" aria-expanded="false">
+              Projects
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform transition-transform" id="projectsIcon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" id="el-2xm1koy3"></path>
+              </svg>
+            </button>
+            <div class="hidden pl-4 mt-2 space-y-2" id="mobileProjectsSubmenu">
+              <a href="#highways" class="text-neutral-800 hover:text-neutral-600 font-medium text-lg block py-2 transition-colors" id="el-vj0kk7qz">Highways</a>
+              <a href="#bridges" class="text-neutral-800 hover:text-neutral-600 font-medium text-lg block py-2 transition-colors" id="el-uy6d97sr">Bridges</a>
+              <a href="#buildings" class="text-neutral-800 hover:text-neutral-600 font-medium text-lg block py-2 transition-colors" id="el-t8mn1q80">Buildings</a>
+            </div>
+          </li>
+          <li id="el-ksqq5oxp">
+            <a href="#contact" class="text-neutral-800 hover:text-neutral-600 font-medium text-xl block py-2 transition-colors border-b border-neutral-200" id="el-ngw3sqqf">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <hr style="height: 0.3rem; border-width:0;color:white;background-color:white; margin:1rem 0; ">
-<section class="about">
-  <div class="about">
-    <table cellspacing="20" style="padding:50px ;">
-      <tr>
-        <td style="padding-right: 100px; padding-left: 100px;"><img src="../img/d1.png" width="160" height="180"
-            alt="profile pic" /></td>
-        <td>
-          <h3>Lallan Prasad Awasthi</h3><br>
-          <p>Lallan Awasthi is the founder and director of our company UPWAN INFRA DEVELOPERS PVT.LTD. With
-            a background in civil engineering, he brings a wealth of technical expertise
-            and project management skills to our team. Lallan is passionate about delivering
-            high-quality construction projects that meet or exceed our clients' expectations.
-            He is a hands-on leader who is involved in every stage of the construction
-            process, from design to completion. He is committed to ensuring that our
-            projects are completed on time, within budget, and to the highest standards
-            of quality and safety. Thanks to his leadership and vision, our construction
-            company has become a trusted name in the industry, known for our
-            professionalism, expertise, and commitment to excellence.</p>
-        </td>
-      </tr>
-      <tr>
-        <td style="padding-right: 100px; padding-left: 100px;"><img src="../img/temp.png" width="160" height="180"
-            alt="profile pic" /></td>
-        <td>
-          <h3>Ranjana Devi Awasthi</h3> <br>
-          <p>Ranjana Awasthi the lady who holds the position of managing director at a
-            construction company. She is responsible for overseeing the day-to-day
-            operations of the company, including managing the budget, coordinating
-            with contractors and vendors, and ensuring that projects are completed on
-            time and within budget. As the wife of the director, she likely has a close
-            working relationship with him and may be involved in making strategic decisions
-            for the company. She may also have a background in construction or business
-            management, and possess strong leadership and organizational skills.</p>
-        </td>
-      </tr>
-      <tr>
-        <td style="padding-right: 100px; padding-left: 100px;"><img src="../img/temp.png" width="160" height="180"
-            alt="profile pic" /></td>
-        <td>
-          <h3>Rajendra Prasad Awasthi</h3><br>
-          <p>Rajendra Awasthi is the Executive Director of our company and as the Executive
-            Director of our company, our Civil Engineer brings a unique perspective to our
-            team. With their background in engineering, they possess a strong analytical
-            mindset, attention to detail, and a solution-oriented approach to
-            problem-solving. They have a deep understanding of the technical aspects of our
-            industry, and they use this knowledge to help guide our strategic decision-making
-            and ensure that our projects are executed with excellence. Their leadership and
-            expertise are invaluable assets to our organization.</p>
-        </td>
-      </tr>
-    </table>
-  </div>
-</section>
+  <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuOpenIcon = document.querySelector('.menu-open');
+      const menuCloseIcon = document.querySelector('.menu-close');
+      const mobileProjectsMenu = document.getElementById('mobileProjectsMenu');
+      const mobileProjectsSubmenu = document.getElementById('mobileProjectsSubmenu');
+      const projectsIcon = document.getElementById('projectsIcon');
 
-  <hr style="height: 0.3rem; border-width:0;color:white;background-color:white; margin:1rem 0; ">
+      menuToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+        menuOpenIcon.classList.toggle('hidden');
+        menuCloseIcon.classList.toggle('hidden');
+        document.body.classList.toggle('overflow-hidden');
+        menuToggle.setAttribute('aria-expanded', mobileMenu.classList.contains('hidden') ? 'false' : 'true');
+      });
 
-  <section class="footer">
+      mobileProjectsMenu.addEventListener('click', function() {
+        mobileProjectsSubmenu.classList.toggle('hidden');
+        projectsIcon.classList.toggle('rotate-180');
+        mobileProjectsMenu.setAttribute('aria-expanded', mobileProjectsSubmenu.classList.contains('hidden') ? 'false' : 'true');
+      });
+    });
+  </script>
+</div>
 
-    <div class="box-container">
+              </element><element id="c705a4fc-7ae3-4905-83c4-452f517735ef" data-section-id="c705a4fc-7ae3-4905-83c4-452f517735ef">
 
-      <div class="box">
-        <img src="../img/img.png" class="tilt">
-      </div>
 
-      <div class="box">
-        <h3>quick links</h3>
-        <a href="../../home/"><i class="fas fa-chevron-circle-right"></i> Home</a>
-        <a href="../../about/"><i class="fas fa-chevron-circle-right"></i> About</a>
-        <a href="../../projects/"><i class="fas fa-chevron-circle-right"></i> Projects</a>
-      </div>
+                
+<div id="root">
+  
 
-      <div class="box">
-        <h3>contact info</h3>
-        <p> <i class="fas fa-phone"></i>+91 635-048-6317</p>
-        <p> <i class="fas fa-envelope"></i>nihalawasthi498@gmail.com</p>
-        <p> <i class="fas fa-map-marked-alt"></i>Indore, India-452018</p>
-        <div class="share">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" id="el-cfyfazeu">
 
-          <a href="https://www.linkedin.com/in/nihal-awasthi-16a644251" class="fab fa-linkedin" aria-label="LinkedIn"
-            target="_blank"></a>
-          <a href="https://github.com/Morpheus498" class="fab fa-github" aria-label="GitHub" target="_blank"></a>
-          <a href="mailto:nihalawasthi498@gmail.com" class="fas fa-envelope" aria-label="Mail" target="_blank"></a>
-          <a href="https://twitter.com/nihal-awasthi" class="fab fa-twitter" aria-label="Twitter" target="_blank"></a>
-          <a href="https://t.me/" class="fab fa-telegram-plane" aria-label="Telegram" target="_blank"></a>
+  <script>
+    // Initialize animation on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const animatedElements = document.querySelectorAll('.animate__animated');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate__fadeInUp');
+            observer.unobserve(entry.target);
+          } else {
+            entry.target.classList.remove('animate__fadeInUp');
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      animatedElements.forEach(element => {
+        observer.observe(element);
+      });
+    });
+  </script>
+</div>
+
+              </element><element id="f91df8d8-f669-48c7-942d-51d6b6012f79" data-section-id="f91df8d8-f669-48c7-942d-51d6b6012f79">
+
+
+                
+<div id="root">
+  <section id="team" class="py-16 bg-white">
+    <div class="container mx-auto px-4" id="el-al9ykbbj">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" id="el-kjamjscb">Our Leadership Team</h2>
+      
+      <div class="grid grid-cols-1 gap-12" id="el-wh0yul1d">
+        <!-- Team Member 1 -->
+        <div class="flex flex-col md:flex-row items-start gap-8 p-6 bg-neutral-50 rounded-lg shadow-md transition-transform duration-300 hover:shadow-lg animate__animated animate__fadeIn animate__fadeInUp" id="el-numhuktl">
+          <div class="w-full md:w-1/4 flex justify-center md:justify-start" id="el-pg5acrbc">
+            <img src="../img/d1.png" alt="Lallan Prasad Awasthi" class="w-40 h-48 object-cover rounded-md shadow transition-all duration-300 hover:shadow-lg" id="el-tjtarohk">
+          </div>
+          <div class="w-full md:w-3/4" id="el-54c8i92n">
+            <h3 class="text-2xl font-bold text-neutral-800" id="el-l9bx6kd4">Lallan Prasad Awasthi</h3>
+            <p class="text-blue-600 font-semibold mb-4" id="el-zxf8w5wr">Founder &amp; Director</p>
+            <p class="text-neutral-700 leading-relaxed" id="el-c74aiss9">
+              Lallan Awasthi is the founder and director of our company UPWAN INFRA DEVELOPERS PVT.LTD. With
+              a background in civil engineering, he brings a wealth of technical expertise
+              and project management skills to our team. Lallan is passionate about delivering
+              high-quality construction projects that meet or exceed our clients' expectations.
+              He is a hands-on leader who is involved in every stage of the construction
+              process, from design to completion. He is committed to ensuring that our
+              projects are completed on time, within budget, and to the highest standards
+              of quality and safety. Thanks to his leadership and vision, our construction
+              company has become a trusted name in the industry, known for our
+              professionalism, expertise, and commitment to excellence.
+            </p>
+          </div>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="flex flex-col md:flex-row items-start gap-8 p-6 bg-neutral-50 rounded-lg shadow-md transition-transform duration-300 hover:shadow-lg animate__animated animate__fadeIn animate__fadeInUp" id="el-h5jc8fqm">
+          <div class="w-full md:w-1/4 flex justify-center md:justify-start" id="el-7azjmzjp">
+            <img src="../img/temp.png" alt="Ranjana Devi Awasthi" class="w-40 h-48 object-cover rounded-md shadow transition-all duration-300 hover:shadow-lg" id="el-ch9x4szg">
+          </div>
+          <div class="w-full md:w-3/4" id="el-jjh09fi8">
+            <h3 class="text-2xl font-bold text-neutral-800" id="el-4c7y41c7">Ranjana Devi Awasthi</h3>
+            <p class="text-blue-600 font-semibold mb-4" id="el-goro4y8e">Managing Director</p>
+            <p class="text-neutral-700 leading-relaxed" id="el-nbruojdy">
+              Ranjana Awasthi the lady who holds the position of managing director at a
+              construction company. She is responsible for overseeing the day-to-day
+              operations of the company, including managing the budget, coordinating
+              with contractors and vendors, and ensuring that projects are completed on
+              time and within budget. As the wife of the director, she likely has a close
+              working relationship with him and may be involved in making strategic decisions
+              for the company. She may also have a background in construction or business
+              management, and possess strong leadership and organizational skills.
+            </p>
+          </div>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="flex flex-col md:flex-row items-start gap-8 p-6 bg-neutral-50 rounded-lg shadow-md transition-transform duration-300 hover:shadow-lg animate__animated animate__fadeIn animate__fadeInUp" id="el-81s9rqpa">
+          <div class="w-full md:w-1/4 flex justify-center md:justify-start" id="el-txq7svxh">
+            <img src="../img/temp.png" alt="Rajendra Prasad Awasthi" class="w-40 h-48 object-cover rounded-md shadow transition-all duration-300 hover:shadow-lg" id="el-zwqbu48c">
+          </div>
+          <div class="w-full md:w-3/4" id="el-q43jhder">
+            <h3 class="text-2xl font-bold text-neutral-800" id="el-7leoxpvx">Rajendra Prasad Awasthi</h3>
+            <p class="text-blue-600 font-semibold mb-4" id="el-3def692z">Executive Director</p>
+            <p class="text-neutral-700 leading-relaxed" id="el-s4y6n1bc">
+              Rajendra Awasthi is the Executive Director of our company and as the Executive
+              Director of our company, our Civil Engineer brings a unique perspective to our
+              team. With their background in engineering, they possess a strong analytical
+              mindset, attention to detail, and a solution-oriented approach to
+              problem-solving. They have a deep understanding of the technical aspects of our
+              industry, and they use this knowledge to help guide our strategic decision-making
+              and ensure that our projects are executed with excellence. Their leadership and
+              expertise are invaluable assets to our organization.
+            </p>
+          </div>
         </div>
       </div>
-
-      <ul class="credits">
-        <li><a href="#">Upwan Infra Developers Pvt. Ltd. © 2017</a></li>
-        <li><a id="sub-footer-links" target="_blank">Privacy &amp; Legal</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="mailto:info@upwaninfra.com">Email</a></li>
-        <li><a href="" target="_blank">ESS</a></li>
-        <li style="display: block;">Website Best Viewed in Google Chrome in 1920 X 1080 Screen Resolution</li>
-      </ul>
-
     </div>
-
   </section>
 
-  <a href="#" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" id="el-yumdchy8">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const teamMembers = document.querySelectorAll('#team .animate__animated');
+      
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+      };
+      
+      const observer = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Add a slight delay between animations
+            setTimeout(() => {
+              entry.target.classList.add('animate__fadeIn');
+            }, Array.from(teamMembers).indexOf(entry.target) * 200);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      
+      teamMembers.forEach(member => {
+        observer.observe(member);
+      });
+    });
+  </script>
+</div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js"
-    integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+              </element><element id="114cbf17-1ba8-4df2-ae79-ea0854c958a5" data-section-id="114cbf17-1ba8-4df2-ae79-ea0854c958a5">
 
-  <script src="../../particles.min.js"></script>
-  <script src="../../app.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"
-    integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                
+<div id="root">
+  
 
-  <script src="https://unpkg.com/scrollreveal"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" id="el-utuoxg09">
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Animation for project cards
+      const animatedElements = document.querySelectorAll('.animate__animated');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate__fadeIn');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      animatedElements.forEach(element => {
+        observer.observe(element);
+      });
+    });
+  </script>
+</div>
 
-  <script src="../../script.js"></script>
+              </element><element id="edf79ab5-e468-4190-9c3c-f05644a18745" data-section-id="edf79ab5-e468-4190-9c3c-f05644a18745">
 
-</body>
 
-</html>
+                
+<div id="root">
+  
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const contactForm = document.getElementById('contactForm');
+      const formSuccess = document.getElementById('formSuccess');
+      const formError = document.getElementById('formError');
+      
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Simulate form submission
+          const formData = new FormData(contactForm);
+          const formValues = Object.fromEntries(formData.entries());
+          
+          // Form validation
+          if (!formValues.name || !formValues.email || !formValues.subject || !formValues.message) {
+            formError.classList.remove('hidden');
+            formSuccess.classList.add('hidden');
+            return;
+          }
+          
+          // Email validation
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(formValues.email)) {
+            formError.textContent = 'Please enter a valid email address.';
+            formError.classList.remove('hidden');
+            formSuccess.classList.add('hidden');
+            return;
+          }
+          
+          // Simulate successful form submission
+          contactForm.reset();
+          formSuccess.classList.remove('hidden');
+          formError.classList.add('hidden');
+          
+          // Hide success message after 5 seconds
+          setTimeout(() => {
+            formSuccess.classList.add('hidden');
+          }, 5000);
+        });
+      }
+    });
+  </script>
+</div>
+
+              </element><element id="f2e8fbb3-c618-4cca-b076-5de1cc31446e" data-section-id="f2e8fbb3-c618-4cca-b076-5de1cc31446e">
+
+
+                
+<div id="root">
+  
+  
+  <!-- Scroll to top button -->
+  <a href="#" aria-label="ScrollTop" class="fixed bottom-6 right-6 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:bg-blue-700 hover:shadow-xl transform hover:-translate-y-1 opacity-0 invisible" id="scroll-top">
+    <i class="fas fa-angle-up text-xl" id="el-tm7ht2rr"></i>
+  </a>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Scroll to top button functionality
+      const scrollTopButton = document.getElementById('scroll-top');
+      
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          scrollTopButton.classList.add('opacity-100', 'visible');
+          scrollTopButton.classList.remove('opacity-0', 'invisible');
+        } else {
+          scrollTopButton.classList.add('opacity-0', 'invisible');
+          scrollTopButton.classList.remove('opacity-100', 'visible');
+        }
+      });
+      
+      scrollTopButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Initialize Vanilla Tilt effect
+      if (typeof VanillaTilt !== 'undefined') {
+        VanillaTilt.init(document.querySelector(".tilt"), {
+          max: 15,
+          speed: 400,
+          glare: true,
+          "max-glare": 0.2
+        });
+      }
+    });
+  </script>
+</div>
+
+              </element></div>
+            <div id="page_complete">
+            <script src="/edit/edit.js"></script>
+            <script>
+                console.log('Page complete');
+                // Initialize hamburger menu functionality
+                document.addEventListener('DOMContentLoaded', function() {
+                  // Initialize all hamburger menus on the page
+                  const hamburgerButtons = document.querySelectorAll('.hamburger-menu, [aria-label="Toggle menu"], [data-toggle="menu"], .mobile-menu-button');
+                  
+                  hamburgerButtons.forEach(button => {
+                    if (button) {
+                      button.addEventListener('click', function() {
+                        // Find the related menu (common patterns in modern websites)
+                        const menu = this.nextElementSibling || 
+                                    document.querySelector(this.getAttribute('data-target')) || 
+                                    document.querySelector('.mobile-menu, .menu-items, .nav-menu');
+                        
+                        if (menu) {
+                          // Toggle menu visibility
+                          if (menu.classList.contains('hidden')) {
+                            menu.classList.remove('hidden');
+                            this.setAttribute('aria-expanded', 'true');
+                          } else {
+                            menu.classList.add('hidden');
+                            this.setAttribute('aria-expanded', 'false');
+                          }
+                          
+                          // Toggle hamburger button appearance if it has typical hamburger elements
+                          const bars = this.querySelectorAll('div, span, .bar');
+                          if (bars.length >= 2) {
+                            this.classList.toggle('active');
+                          }
+                        }
+                      });
+                    }
+                  });
+                  
+                  // Send a message to the parent frame to indicate content is ready
+                  if (window.parent && window.parent !== window) {
+                    window.parent.postMessage({ type: 'iframe-content-loaded' }, '*');
+                  }
+                });
+            </script>
+            </body>
+            </html>
+          

@@ -1,231 +1,717 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" content="">
+  <meta name="theme-color" content="#ffffff">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="keywords"
-    content="Nihal Awasthi, portfolio, Nihal, full stack dev, personal portfolio lifecodes, portfolio design, portfolio website, personal portfolio" />
-  <meta name="description" content="Welcome to Nihal's Portfolio. Full-Stack Web Developer and Android App Developer" />
-  <link rel="stylesheet" href="../styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="icon" type="image/ico" href="img\ico.ico?">
-
+  <meta name="robots" content="">
   <title>Upwan Infra Developers</title>
+  <meta name="description" content="">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+
+  <script id="header-scripts">
+    if (window.scripts && window.scripts.head) {
+      document.getElementById('header-scripts').outerHTML = window.scripts.head;
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+  <script type="application/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                DEFAULT: '#000000',
+                50: '#f8f8f8',
+                100: '#e8e8e8',
+                200: '#d3d3d3',
+                300: '#a3a3a3',
+                400: '#737373',
+                500: '#525252',
+                600: '#404040',
+                700: '#262626',
+                800: '#171717',
+                900: '#0a0a0a',
+                950: '#030303',
+              },
+              secondary: {
+                DEFAULT: '#656565',
+                50: '#f8f8f8',
+                100: '#e8e8e8',
+                200: '#d3d3d3',
+                300: '#a3a3a3',
+                400: '#737373',
+                500: '#525252',
+                600: '#404040',
+                700: '#262626',
+                800: '#171717',
+                900: '#0a0a0a',
+                950: '#030303',
+              },
+              accent: {
+                DEFAULT: '#2506ad',
+                50: '#f8f8f8',
+                100: '#e8e8e8',
+                200: '#d3d3d3',
+                300: '#a3a3a3',
+                400: '#737373',
+                500: '#525252',
+                600: '#404040',
+                700: '#262626',
+                800: '#171717',
+                900: '#0a0a0a',
+                950: '#030303',
+              },
+            },
+            fontFamily: {
+              sans: ['Poppins, sans-serif', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'],
+              heading: ['Nunito, sans-serif', 'Inter', 'system-ui', 'sans-serif'],
+              body: ['Nunito, sans-serif', 'Inter', 'system-ui', 'sans-serif'],
+            },
+            spacing: {
+              '18': '4.5rem',
+              '22': '5.5rem',
+              '30': '7.5rem',
+            },
+            maxWidth: {
+              '8xl': '88rem',
+              '9xl': '96rem',
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-in',
+              'fade-out': 'fadeOut 0.5s ease-out',
+              'slide-up': 'slideUp 0.5s ease-out',
+              'slide-down': 'slideDown 0.5s ease-out',
+              'slide-left': 'slideLeft 0.5s ease-out',
+              'slide-right': 'slideRight 0.5s ease-out',
+              'scale-in': 'scaleIn 0.5s ease-out',
+              'scale-out': 'scaleOut 0.5s ease-out',
+              'spin-slow': 'spin 3s linear infinite',
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'bounce-slow': 'bounce 3s infinite',
+              'float': 'float 3s ease-in-out infinite',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              fadeOut: {
+                '0%': { opacity: '1' },
+                '100%': { opacity: '0' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(20px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideDown: {
+                '0%': { transform: 'translateY(-20px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideLeft: {
+                '0%': { transform: 'translateX(20px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              slideRight: {
+                '0%': { transform: 'translateX(-20px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0.9)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              },
+              scaleOut: {
+                '0%': { transform: 'scale(1.1)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+            },
+            aspectRatio: {
+              'portrait': '3/4',
+              'landscape': '4/3',
+              'ultrawide': '21/9',
+            },
+          },
+        },
+        variants: {
+          extend: {
+            opacity: ['disabled'],
+            cursor: ['disabled'],
+            backgroundColor: ['active', 'disabled'],
+            textColor: ['active', 'disabled'],
+          },
+        },
+      }
+    });
+  </script>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" type="image/x-icon" href="img/ico.ico">
+
+  <style>
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: Poppins, sans-serif, Inter, system-ui, sans-serif;
+    }
+
+    body {
+      font-family: Nunito, sans-serif, Inter, system-ui, sans-serif;
+    }
+  </style>
 </head>
 
-<body>
-  <header class="header">
-    <a href="../home/"><img src="img\u-nav.png" style="height: 6rem; margin:0%; padding:0 0.5rem;"></a>
-    <button class="menu-icon" onclick="toggleMenu()">&#9776;</button>
-    <ul class="main-nav" id="mainNav">
-      <li><a href="../home/" target="_blank">Home</a></li>
-      <li><a href="../about/" target="_blank">About</a></li>
-      <li>
-        <div class="dropdown">
-          <a href="../projects/" target="_blank">Projects <i class="fa fa-caret-down"></i></a>
-          <div class="dropdown-content">
-            <a href="../projects/">Highways</a>
-            <a href="../projects/#skills">Bridges</a>
-            <a href="../projects/#experience">Buildings</a>
-          </div>
-        </div>
-      </li>
-      <li><a href="../contact" target="_blank">Contact</a></li>
-    </ul>
-  </header>
+<body class="antialiased text-gray-800 min-h-screen flex flex-col">
+  <a href="#main-content"
+    class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-white focus:text-black">
+    Skip to main content
+  </a>
 
-  <hr style="height: 0.3rem; border-width:0;color:white;background-color:white">
-
-  <h1 style="font-size: 8rem;"> 😭Page under construction</h1>
-
-  <hr style="height: 0.3rem; border-width:0;color:white;background-color:white">
-  
-  <section class="projects" id="Bridges">
-    <h2 class="heading" style="padding: 2.5rem 0;">Bri<span>dges</span></h2>
-    <div class="card-grid">
-      <div class="card">
-        <img src="img/b.jpeg" alt="Bridge" />
-        <h1>Bridge 1<i class="fas fa-chevron-right"></i></h1>
-        <p></p>
-      </div>
-      <div class="card">
-        <img src="img/b.jpeg" alt="Bridge" />
-        <h1>Bridge 1<i class="fas fa-chevron-right"></i></h1>
-        <p></p>
-      </div>
-      <div class="card">
-        <img src="img/b.jpeg" alt="Bridge" />
-        <h1>Bridge 1<i class="fas fa-chevron-right"></i></h1>
-        <p></p>
-      </div>
-      <div class="card">
-        <img src="img/b.jpeg" alt="Bridge" />
-        <h1>Bridge 1<i class="fas fa-chevron-right"></i></h1>
-        <p></p>
-      </div>
-      <div class="card">
-        <img src="img/b.jpeg" alt="Bridge" />
-        <h1>Bridge 1<i class="fas fa-chevron-right"></i></h1>
-        <p></p>
-      </div>
-      <div class="card">
-        <img src="img/b.jpeg" alt="Bridge" />
-        <h1>Bridge 1<i class="fas fa-chevron-right"></i></h1>
-        <p></p>
-      </div>
-    </div>
-    </section>
-
-    <hr style="height: 0.3rem; border-width:0;color:white;background-color:white">
-
-    <section class="projects" id="Highways">
-      <h2 class="heading" style="padding: 2.5rem 0;">High<span>ways</span></h2>
-      <div class="card-grid">
-        <div class="card">
-          <img src="img/b.jpeg" alt="Bridge" />
-          <h1>Highways 1<i class="fas fa-chevron-right"></i></h1>
-          <p></p>
-        </div>
-        <div class="card">
-          <img src="img/b.jpeg" alt="Bridge" />
-          <h1>Highways 1<i class="fas fa-chevron-right"></i></h1>
-          <p></p>
-        </div>
-        <div class="card">
-          <img src="img/b.jpeg" alt="Bridge" />
-          <h1>Highways 1<i class="fas fa-chevron-right"></i></h1>
-          <p></p>
-        </div>
-        <div class="card">
-          <img src="img/b.jpeg" alt="Bridge" />
-          <h1>Highways 1<i class="fas fa-chevron-right"></i></h1>
-          <p></p>
-        </div>
-        <div class="card">
-          <img src="img/b.jpeg" alt="Bridge" />
-          <h1>Highways 1<i class="fas fa-chevron-right"></i></h1>
-          <p></p>
-        </div>
-        <div class="card">
-          <img src="img/b.jpeg" alt="Bridge" />
-          <h1>Highways 1<i class="fas fa-chevron-right"></i></h1>
-          <p></p>
-        </div>
-      </div>
-    </section>
-
-    <hr style="height: 0.3rem; border-width:0;color:white;background-color:white">
-
-    <section class="projects" id="Buildings">
-      <h2 class="heading" style="padding: 2.5rem 0;">Buil<span>ding</span></h2>
-      <div class="card-grid">
-        <div class="card">
-          <img src="img/b.jpeg" alt="Bridge" />
-          <h1>Building 1<i class="fas fa-chevron-right"></i></h1>
-          <p></p>
-        </div>
-        <div class="card">
-          <img src="img/b.jpeg" alt="Bridge" />
-          <h1>Building 1<i class="fas fa-chevron-right"></i></h1>
-          <p></p>
-        </div>
-        <div class="card">
-          <img src="img/b.jpeg" alt="Bridge" />
-          <h1>Building 1<i class="fas fa-chevron-right"></i></h1>
-          <p></p>
-        </div>
-        <div class="card">
-          <img src="img/b.jpeg" alt="Bridge" />
-          <h1>Building 1<i class="fas fa-chevron-right"></i></h1>
-          <p></p>
-        </div>
-        <div class="card">
-          <img src="img/b.jpeg" alt="Bridge" />
-          <h1>Building 1<i class="fas fa-chevron-right"></i></h1>
-          <p></p>
-        </div>
-        <div class="card">
-          <img src="img/b.jpeg" alt="Bridge" />
-          <h1>Building 1<i class="fas fa-chevron-right"></i></h1>
-          <p></p>
-        </div>
-      </div>
-    </section>
-
-    <hr style="height: 3px; border-width:0;color:white;background-color:white; margin:10px 0; ">
-
-    <section class="footer">
-
-      <div class="box-container">
-
-        <div class="box">
-          <img src="img\img.png" class="tilt">
-        </div>
-
-        <div class="box">
-          <h3>quick links</h3>
-          <a href="../home/"><i class="fas fa-chevron-circle-right"></i> Home</a>
-          <a href="../about/"><i class="fas fa-chevron-circle-right"></i> About</a>
-          <a href="../projects/"><i class="fas fa-chevron-circle-right"></i> Projects</a>
-        </div>
-
-        <div class="box">
-          <h3>contact info</h3>
-          <p> <i class="fas fa-phone"></i>+91 635-048-6317</p>
-          <p> <i class="fas fa-envelope"></i>nihalawasthi498@gmail.com</p>
-          <p> <i class="fas fa-map-marked-alt"></i>Indore, India-452018</p>
-          <div class="share">
-
-            <a href="https://www.linkedin.com/in/nihal-awasthi-16a644251" class="fab fa-linkedin" aria-label="LinkedIn"
-              target="_blank"></a>
-            <a href="https://github.com/Morpheus498" class="fab fa-github" aria-label="GitHub" target="_blank"></a>
-            <a href="mailto:nihalawasthi498@gmail.com" class="fas fa-envelope" aria-label="Mail" target="_blank"></a>
-            <a href="https://twitter.com/nihal-awasthi" class="fab fa-twitter" aria-label="Twitter" target="_blank"></a>
-            <a href="https://t.me/" class="fab fa-telegram-plane" aria-label="Telegram" target="_blank"></a>
-          </div>
-        </div>
-
-        <ul class="credits">
-          <li><a href="#">Upwan Infra Developers Pvt. Ltd. © 2017</a></li>
-          <li><a id="sub-footer-links" target="_blank">Privacy &amp; Legal</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="mailto:info@upwaninfra.com">Email</a></li>
-          <li><a href="" target="_blank">ESS</a></li>
-          <li style="display: block;">Website Best Viewed in Google Chrome in 1920 X 1080 Screen Resolution</li>
-        </ul>
-
-      </div>
-
-    </section>
-
-    <a href="#" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js"
-      integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <script src="../particles.min.js"></script>
-    <script src="../app.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"
-      integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <script src="https://unpkg.com/scrollreveal"></script>
-
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
-    <script src="../script.js"></script>
+  <main id="main-content" class="flex-1 relative h-full">
+  </main>
 
 </body>
 
 </html>
+<script>window.projectId = "9c63a420-0545-4382-8925-6038c4f3da19";</script>
+<div id='RolloutPageContent'>
+
+  <element id="2b3e3aea-5691-49d2-95ab-8eb9f6c392b0" data-section-id="2b3e3aea-5691-49d2-95ab-8eb9f6c392b0">
+
+
+    <div id="root">
+      <section id="projects" class="py-20 bg-neutral-900">
+        <!-- Background Elements -->
+        <div class="absolute left-0 w-1/3 h-full overflow-hidden">
+          <div class="absolute -left-32 top-1/4 w-64 h-64 bg-blue-900/10 rounded-full blur-3xl"></div>
+          <div class="absolute left-0 bottom-0 w-96 h-96 bg-indigo-900/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+          <!-- Section Header -->
+          <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-white mb-4 flex items-center justify-center">
+              <i class="fas fa-project-diagram mr-3 text-blue-600"></i>
+              Our <span class="text-neutral-400 ml-2">Projects</span>
+            </h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-indigo-500 mx-auto mb-6"></div>
+            <p class="text-neutral-300 max-w-3xl mx-auto text-lg">
+              Explore our diverse portfolio of construction and infrastructure projects, showcasing our expertise in
+              building highways, bridges, and commercial structures.
+            </p>
+          </div>
+
+          <!-- Project Category Tabs -->
+          <div class="flex flex-wrap justify-center mb-12">
+            <button
+              class="project-tab active px-6 py-3 bg-neutral-800 hover:bg-blue-800 text-white rounded-md mx-2 mb-3 transition-colors duration-300"
+              data-category="all">
+              All Projects
+            </button>
+            <button
+              class="project-tab px-6 py-3 bg-neutral-800 hover:bg-blue-800 text-white rounded-md mx-2 mb-3 transition-colors duration-300"
+              data-category="bridges">
+              <i class="fas fa-archway mr-2"></i>Bridges
+            </button>
+            <button
+              class="project-tab px-6 py-3 bg-neutral-800 hover:bg-blue-800 text-white rounded-md mx-2 mb-3 transition-colors duration-300"
+              data-category="highways">
+              <i class="fas fa-road mr-2"></i>Highways
+            </button>
+            <button
+              class="project-tab px-6 py-3 bg-neutral-800 hover:bg-blue-800 text-white rounded-md mx-2 mb-3 transition-colors duration-300"
+              data-category="buildings">
+              <i class="fas fa-building mr-2"></i>Buildings
+            </button>
+          </div>
+
+          <!-- Projects Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project 1 - Bridge -->
+            <div class="project-card" data-category="bridges">
+              <div
+                class="bg-neutral-800 rounded-lg overflow-hidden shadow-lg hover:shadow-blue-900/20 transform transition-all duration-300 hover:-translate-y-2 border border-neutral-700 h-full flex flex-col">
+                <div class="relative overflow-hidden group">
+                  <img src="img/b.jpeg" alt="Bridge Project"
+                    class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                  <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 to-transparent opacity-60"></div>
+                  <div class="absolute top-4 left-4 bg-blue-800 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    Bridge</div>
+                </div>
+                <div class="p-6 flex-grow">
+                  <h3 class="text-xl font-bold text-white mb-3">Mumbai Coastal Bridge</h3>
+                  <p class="text-neutral-300 mb-4">
+                    A 2.5 km suspension bridge connecting mainland Mumbai to the suburbs, designed to withstand extreme
+                    coastal conditions.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="text-xs bg-neutral-700 text-blue-300 px-3 py-1 rounded-full">Design</span>
+                    <span class="text-xs bg-neutral-700 text-blue-300 px-3 py-1 rounded-full">Construction</span>
+                    <span class="text-xs bg-neutral-700 text-blue-300 px-3 py-1 rounded-full">Suspension</span>
+                  </div>
+                </div>
+                <div class="p-6 pt-0 border-t border-neutral-700">
+                  <a href="../projects/#Bridges"
+                    class="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors font-semibold">
+                    View Project Details
+                    <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 2 - Highway -->
+            <div class="project-card" data-category="highways">
+              <div
+                class="bg-neutral-800 rounded-lg overflow-hidden shadow-lg hover:shadow-blue-900/20 transform transition-all duration-300 hover:-translate-y-2 border border-neutral-700 h-full flex flex-col">
+                <div class="relative overflow-hidden group">
+                  <img src="img/hi.jpg" alt="Highway Project"
+                    class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                  <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 to-transparent opacity-60"></div>
+                  <div class="absolute top-4 left-4 bg-blue-800 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    Highway</div>
+                </div>
+                <div class="p-6 flex-grow">
+                  <h3 class="text-xl font-bold text-white mb-3">Delhi-Jaipur Expressway</h3>
+                  <p class="text-neutral-300 mb-4">
+                    A 6-lane, 250 km expressway connecting Delhi to Jaipur with advanced traffic management systems and
+                    rest areas.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="text-xs bg-neutral-700 text-blue-300 px-3 py-1 rounded-full">Expressway</span>
+                    <span class="text-xs bg-neutral-700 text-blue-300 px-3 py-1 rounded-full">Infrastructure</span>
+                    <span class="text-xs bg-neutral-700 text-blue-300 px-3 py-1 rounded-full">Smart Systems</span>
+                  </div>
+                </div>
+                <div class="p-6 pt-0 border-t border-neutral-700">
+                  <a href="../projects/#Highways"
+                    class="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors font-semibold">
+                    View Project Details
+                    <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 3 - Building -->
+            <div class="project-card" data-category="buildings">
+              <div
+                class="bg-neutral-800 rounded-lg overflow-hidden shadow-lg hover:shadow-blue-900/20 transform transition-all duration-300 hover:-translate-y-2 border border-neutral-700 h-full flex flex-col">
+                <div class="relative overflow-hidden group">
+                  <img src="img/bi.jpg" alt="Building Project"
+                    class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                  <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 to-transparent opacity-60"></div>
+                  <div class="absolute top-4 left-4 bg-blue-800 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    Building</div>
+                </div>
+                <div class="p-6 flex-grow">
+                  <h3 class="text-xl font-bold text-white mb-3">Indore Tech Park</h3>
+                  <p class="text-neutral-300 mb-4">
+                    A modern 12-storey commercial complex in Indore with sustainable design features and smart building
+                    technology.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="text-xs bg-neutral-700 text-blue-300 px-3 py-1 rounded-full">Commercial</span>
+                    <span class="text-xs bg-neutral-700 text-blue-300 px-3 py-1 rounded-full">Green Building</span>
+                    <span class="text-xs bg-neutral-700 text-blue-300 px-3 py-1 rounded-full">Smart Tech</span>
+                  </div>
+                </div>
+                <div class="p-6 pt-0 border-t border-neutral-700">
+                  <a href="../projects/#Buildings"
+                    class="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors font-semibold">
+                    View Project Details
+                    <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 4 - Bridge -->
+            <div class="project-card" data-category="bridges">
+              <div
+                class="bg-neutral-800 rounded-lg overflow-hidden shadow-lg hover:shadow-blue-900/20 transform transition-all duration-300 hover:-translate-y-2 border border-neutral-700 h-full flex flex-col">
+                <div class="relative overflow-hidden group">
+                  <img src="img/b.jpeg" alt="Bridge Project"
+                    class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                  <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 to-transparent opacity-60"></div>
+                  <div class="absolute top-4 left-4 bg-blue-800 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    Bridge</div>
+                </div>
+                <div class="p-6 flex-grow">
+                  <h3 class="text-xl font-bold text-white mb-3">Narmada River Crossing</h3>
+                  <p class="text-neutral-300 mb-4">
+                    A cable-stayed bridge across the Narmada River, connecting critical transportation routes in central
+                    India.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="text-xs bg-neutral-700 text-blue-300 px-3 py-1 rounded-full">Cable-Stayed</span>
+                    <span class="text-xs bg-neutral-700 text-blue-300 px-3 py-1 rounded-full">River Crossing</span>
+                    <span class="text-xs bg-neutral-700 text-blue-300 px-3 py-1 rounded-full">Transportation</span>
+                  </div>
+                </div>
+                <div class="p-6 pt-0 border-t border-neutral-700">
+                  <a href="../projects/#Bridges"
+                    class="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors font-semibold">
+                    View Project Details
+                    <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 5 - Highway -->
+            <div class="project-card" data-category="highways">
+              <div
+                class="bg-neutral-800 rounded-lg overflow-hidden shadow-lg hover:shadow-blue-900/20 transform transition-all duration-300 hover:-translate-y-2 border border-neutral-700 h-full flex flex-col">
+                <div class="relative overflow-hidden group">
+                  <img src="img/hi.jpg" alt="Highway Project"
+                    class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                  <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 to-transparent opacity-60"></div>
+                  <div class="absolute top-4 left-4 bg-blue-800 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    Highway</div>
+                </div>
+                <div class="p-6 flex-grow">
+                  <h3 class="text-xl font-bold text-white mb-3">Mountain Pass Highway</h3>
+                  <p class="text-neutral-300 mb-4">
+                    A challenging mountain highway project with tunnels and bridges, connecting remote regions with
+                    mainstream transportation networks.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="text-xs bg-neutral-700 text-blue-300 px-3 py-1 rounded-full">Mountain</span>
+                    <span class="text-xs bg-neutral-700 text-blue-300 px-3 py-1 rounded-full">Tunnels</span>
+                    <span class="text-xs bg-neutral-700 text-blue-300 px-3 py-1 rounded-full">Connectivity</span>
+                  </div>
+                </div>
+                <div class="p-6 pt-0 border-t border-neutral-700">
+                  <a href="../projects/#Highways"
+                    class="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors font-semibold">
+                    View Project Details
+                    <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 6 - Building -->
+            <div class="project-card" data-category="buildings">
+              <div
+                class="bg-neutral-800 rounded-lg overflow-hidden shadow-lg hover:shadow-blue-900/20 transform transition-all duration-300 hover:-translate-y-2 border border-neutral-700 h-full flex flex-col">
+                <div class="relative overflow-hidden group">
+                  <img src="img/bi.jpg" alt="Building Project"
+                    class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                  <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 to-transparent opacity-60"></div>
+                  <div class="absolute top-4 left-4 bg-blue-800 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    Building</div>
+                </div>
+                <div class="p-6 flex-grow">
+                  <h3 class="text-xl font-bold text-white mb-3">Eco Residential Complex</h3>
+                  <p class="text-neutral-300 mb-4">
+                    A sustainable residential complex featuring rainwater harvesting, solar power, and energy-efficient
+                    design for reduced carbon footprint.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="text-xs bg-neutral-700 text-blue-300 px-3 py-1 rounded-full">Residential</span>
+                    <span class="text-xs bg-neutral-700 text-blue-300 px-3 py-1 rounded-full">Eco-Friendly</span>
+                    <span class="text-xs bg-neutral-700 text-blue-300 px-3 py-1 rounded-full">Sustainable</span>
+                  </div>
+                </div>
+                <div class="p-6 pt-0 border-t border-neutral-700">
+                  <a href="../projects/#Buildings"
+                    class="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors font-semibold">
+                    View Project Details
+                    <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- View All Projects Button -->
+          <div class="mt-12 text-center">
+            <a href="../projects"
+              class="inline-block px-8 py-4 bg-gradient-to-r from-blue-800 to-indigo-700 text-white rounded-md font-semibold hover:shadow-lg hover:shadow-blue-900/30 transition-all duration-300 group">
+              <span>Explore All Projects</span>
+              <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          // Project filtering functionality
+          const projectTabs = document.querySelectorAll('.project-tab');
+          const projectCards = document.querySelectorAll('.project-card');
+
+          projectTabs.forEach(tab => {
+            tab.addEventListener('click', function () {
+              // Remove active class from all tabs
+              projectTabs.forEach(t => t.classList.remove('active', 'bg-blue-800'));
+              projectTabs.forEach(t => t.classList.add('bg-neutral-800'));
+
+              // Add active class to clicked tab
+              this.classList.add('active', 'bg-blue-800');
+              this.classList.remove('bg-neutral-800');
+
+              const category = this.dataset.category;
+
+              // Show/hide projects based on category
+              projectCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                  card.style.display = 'block';
+                  // Add animation
+                  card.classList.add('animate__animated', 'animate__fadeIn');
+                  setTimeout(() => {
+                    card.classList.remove('animate__animated', 'animate__fadeIn');
+                  }, 1000);
+                } else {
+                  card.style.display = 'none';
+                }
+              });
+            });
+          });
+
+          // Initialize animations
+          if (typeof ScrollReveal !== 'undefined') {
+            ScrollReveal().reveal('#projects .project-card', {
+              delay: 200,
+              distance: '20px',
+              duration: 1000,
+              interval: 100,
+              origin: 'bottom',
+              easing: 'ease-out'
+            });
+          }
+        });
+      </script>
+    </div>
+  </element>
+  <element id="973546b8-e854-4105-9870-ff65f61b4421" data-section-id="973546b8-e854-4105-9870-ff65f61b4421">
+
+
+    <div id="root">
+      <footer id="footer" class="bg-neutral-900 text-white py-12">
+        <div class="container mx-auto px-4" id="el-1yb2e4cu">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="el-nyy50yhw" style="padding: 0px;">
+            <!-- Company Logo and Info -->
+            <div class="flex flex-col justify-center items-center md:items-start" id="el-6654tl6i">
+              <img src="img/img.png" alt="Upwan Infra Logo"
+                class="w-48 h-auto rounded-lg shadow-lg hover:shadow-xl left-1/2 transition duration-300 mb-4"
+                id="el-f8djrgx9">
+              <p class="text-gray-400 text-sm mt-4 text-center md:text-left" id="el-9183lh34">
+                Building excellence since 2017. Quality infrastructure for a growing India.
+              </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div id="el-89jscrex">
+              <h3 class="text-xl font-bold mb-4 border-b border-gray-700 pb-2" id="el-zj5dvgzf">Quick Links</h3>
+              <ul class="space-y-2" id="el-j2405r2a">
+                <li id="el-a8fw79ru">
+                  <a href="#home" class="text-gray-400 hover:text-white transition duration-300 flex items-center"
+                    id="el-v8an10ms">
+                    <i class="fas fa-chevron-circle-right mr-2 text-gray-500" id="el-pm0tz167"></i> Home
+                  </a>
+                </li>
+                <li id="el-p5n3kmos">
+                  <a href="#about" class="text-gray-400 hover:text-white transition duration-300 flex items-center"
+                    id="el-jj5wquvs">
+                    <i class="fas fa-chevron-circle-right mr-2 text-gray-500" id="el-8dzcm9is"></i> About
+                  </a>
+                </li>
+                <li id="el-gm70r5rk">
+                  <a href="#projects" class="text-gray-400 hover:text-white transition duration-300 flex items-center"
+                    id="el-q1ha4rh7">
+                    <i class="fas fa-chevron-circle-right mr-2 text-gray-500" id="el-gxwx9tj3"></i> Projects
+                  </a>
+                </li>
+                <li id="el-7d0eyse2">
+                  <a href="#services" class="text-gray-400 hover:text-white transition duration-300 flex items-center"
+                    id="el-jpya3v97">
+                    <i class="fas fa-chevron-circle-right mr-2 text-gray-500" id="el-3euuvm4i"></i> Services
+                  </a>
+                </li>
+                <li id="el-5ioj99a9">
+                  <a href="/#contact" class="text-gray-400 hover:text-white transition duration-300 flex items-center"
+                    id="el-1eficwzz">
+                    <i class="fas fa-chevron-circle-right mr-2 text-gray-500" id="el-rjg1eqi3"></i> Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div id="el-jm24imsy">
+              <h3 class="text-xl font-bold mb-4 border-b border-gray-700 pb-2" id="el-0unw302k">Contact Info</h3>
+              <ul class="space-y-3" id="el-un8yx024">
+                <li class="flex items-start" id="el-g9oifvkd">
+                  <i class="fas fa-phone text-gray-500 mt-1 mr-3" id="el-idzj2rlc"></i>
+                  <span class="text-gray-400" id="el-m1wtd9uc">+91 635-048-6317</span>
+                </li>
+                <li class="flex items-start" id="el-lcl1631r">
+                  <i class="fas fa-envelope text-gray-500 mt-1 mr-3" id="el-a5no579n"></i>
+                  <a href="mailto:info@upwaninfra.com" class="text-gray-400 hover:text-white transition duration-300"
+                    id="el-1f6hku2h">info@upwaninfra.com</a>
+                </li>
+                <li class="flex items-start" id="el-gvacbx59">
+                  <i class="fas fa-map-marked-alt text-gray-500 mt-1 mr-3" id="el-xneluzja"></i>
+                  <span class="text-gray-400" id="el-i3ww519x">Indore, India - 452018</span>
+                </li>
+              </ul>
+
+              <div class="mt-6" id="el-bdv8rjkj">
+                <h4 class="text-lg font-semibold mb-3" id="el-r3lfo2au">Follow Us</h4>
+                <div class="flex space-x-3" id="el-0fucvgb8">
+                  <a href="https://www.linkedin.com/in/nihal-awasthi-16a644251" target="_blank"
+                    class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition duration-300"
+                    aria-label="LinkedIn" id="el-3xjno5i9">
+                    <i class="fab fa-linkedin-in" id="el-rj9jbxas"></i>
+                  </a>
+                  <a href="https://github.com/UpwanInfra" target="_blank"
+                    class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition duration-300"
+                    aria-label="GitHub" id="el-bbaw9t0d">
+                    <i class="fab fa-github" id="el-z0nz18sx"></i>
+                  </a>
+                  <a href="mailto:nihalawasthi498@gmail.com" target="_blank"
+                    class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition duration-300"
+                    aria-label="Mail" id="el-i2zqt2l3">
+                    <i class="fas fa-envelope" id="el-etjzixq6"></i>
+                  </a>
+                  <a href="https://www.instagram.com/upwan_infra_developers/" target="_blank"
+                    class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition duration-300"
+                    aria-label="Instagram" id="el-ayiwabiv">
+                    <i class="fab fa-instagram" id="el-asxho4xn"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer Bottom -->
+          <div class="mt-12 pt-6 border-t border-gray-800" id="el-02lp5rs2">
+            <ul class="flex flex-wrap justify-center space-x-4 mb-4" id="el-rknwujqu">
+              <li id="el-dzh92x1m"><a href="#" class="text-gray-400 hover:text-white transition duration-300"
+                  id="el-wza1xv42">Upwan Infra Developers Pvt. Ltd. © 2017</a></li>
+              <li id="el-e5re482f"><a href="#privacy" class="text-gray-400 hover:text-white transition duration-300"
+                  id="el-6h5t56c7">Privacy &amp; Legal</a></li>
+              <li id="el-6cbd0l7t"><a href="/#contact" class="text-gray-400 hover:text-white transition duration-300"
+                  id="el-yomtr7k2">Contact</a></li>
+              <li id="el-z2qmly38"><a href="mailto:info@upwaninfra.com"
+                  class="text-gray-400 hover:text-white transition duration-300" id="el-qg77ech7">Email</a></li>
+            </ul>
+
+            <p class="text-center text-gray-500 text-sm" id="el-b4qa5zvt">
+              Website Best Viewed in Google Chrome in 1920 X 1080 Screen Resolution
+            </p>
+          </div>
+        </div>
+
+        <!-- Scroll to top button -->
+        <button id="scroll-top"
+          class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-indigo-900 hover:bg-indigo-800 text-white flex items-center justify-center shadow-lg transition duration-300 focus:outline-none opacity-100"
+          aria-label="Scroll to top">
+          <i class="fas fa-angle-up text-xl" id="el-egta060f"></i>
+        </button>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            // Scroll to top functionality
+            const scrollTopButton = document.getElementById('scroll-top');
+
+            window.addEventListener('scroll', function () {
+              if (window.pageYOffset > 300) {
+                scrollTopButton.classList.add('opacity-100');
+                scrollTopButton.classList.remove('opacity-0');
+              } else {
+                scrollTopButton.classList.add('opacity-0');
+                scrollTopButton.classList.remove('opacity-100');
+              }
+            });
+
+            scrollTopButton.addEventListener('click', function () {
+              window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+              });
+            });
+          });
+        </script>
+      </footer>
+    </div>
+  </element>
+</div>
+<div id="page_complete">
+  <script src="/edit/edit.js"></script>
+  <script>
+    console.log('Page complete');
+    // Initialize hamburger menu functionality
+    document.addEventListener('DOMContentLoaded', function () {
+      // Initialize all hamburger menus on the page
+      const hamburgerButtons = document.querySelectorAll('.hamburger-menu, [aria-label="Toggle menu"], [data-toggle="menu"], .mobile-menu-button');
+
+      hamburgerButtons.forEach(button => {
+        if (button) {
+          button.addEventListener('click', function () {
+            // Find the related menu (common patterns in modern websites)
+            const menu = this.nextElementSibling ||
+              document.querySelector(this.getAttribute('data-target')) ||
+              document.querySelector('.mobile-menu, .menu-items, .nav-menu');
+
+            if (menu) {
+              // Toggle menu visibility
+              if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                this.setAttribute('aria-expanded', 'true');
+              } else {
+                menu.classList.add('hidden');
+                this.setAttribute('aria-expanded', 'false');
+              }
+
+              // Toggle hamburger button appearance if it has typical hamburger elements
+              const bars = this.querySelectorAll('div, span, .bar');
+              if (bars.length >= 2) {
+                this.classList.toggle('active');
+              }
+            }
+          });
+        }
+      });
+
+      // Send a message to the parent frame to indicate content is ready
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({ type: 'iframe-content-loaded' }, '*');
+      }
+    });
+  </script>
+  </body>
+
+  </html>

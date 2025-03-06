@@ -1,220 +1,1332 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#ffffff">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="icon" type="image/ico" href="img\ico.ico?">
-
   <title>Upwan Infra Developers</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+
+  <script id="header-scripts">
+    if (window.scripts && window.scripts.head) {
+      document.getElementById('header-scripts').outerHTML = window.scripts.head;
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script type="application/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                DEFAULT: '#000000',
+                50: '#f8f8f8',
+                100: '#e8e8e8',
+                200: '#d3d3d3',
+                300: '#a3a3a3',
+                400: '#737373',
+                500: '#525252',
+                600: '#404040',
+                700: '#262626',
+                800: '#171717',
+                900: '#0a0a0a',
+                950: '#030303',
+              },
+              secondary: {
+                DEFAULT: '#ffffff',
+                50: '#f8f8f8',
+                100: '#e8e8e8',
+                200: '#d3d3d3',
+                300: '#a3a3a3',
+                400: '#737373',
+                500: '#525252',
+                600: '#404040',
+                700: '#262626',
+                800: '#171717',
+                900: '#0a0a0a',
+                950: '#030303',
+              },
+              accent: {
+                DEFAULT: '#656565',
+                50: '#f8f8f8',
+                100: '#e8e8e8',
+                200: '#d3d3d3',
+                300: '#a3a3a3',
+                400: '#737373',
+                500: '#525252',
+                600: '#404040',
+                700: '#262626',
+                800: '#171717',
+                900: '#0a0a0a',
+                950: '#030303',
+              },
+            },
+            fontFamily: {
+              sans: ['Poppins, sans-serif', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'],
+              heading: ['Nunito, sans-serif', 'Inter', 'system-ui', 'sans-serif'],
+              body: ['Nunito, sans-serif', 'Inter', 'system-ui', 'sans-serif'],
+            },
+            spacing: {
+              '18': '4.5rem',
+              '22': '5.5rem',
+              '30': '7.5rem',
+            },
+            maxWidth: {
+              '8xl': '88rem',
+              '9xl': '96rem',
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-in',
+              'fade-out': 'fadeOut 0.5s ease-out',
+              'slide-up': 'slideUp 0.5s ease-out',
+              'slide-down': 'slideDown 0.5s ease-out',
+              'slide-left': 'slideLeft 0.5s ease-out',
+              'slide-right': 'slideRight 0.5s ease-out',
+              'scale-in': 'scaleIn 0.5s ease-out',
+              'scale-out': 'scaleOut 0.5s ease-out',
+              'spin-slow': 'spin 3s linear infinite',
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'bounce-slow': 'bounce 3s infinite',
+              'float': 'float 3s ease-in-out infinite',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              fadeOut: {
+                '0%': { opacity: '1' },
+                '100%': { opacity: '0' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(20px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideDown: {
+                '0%': { transform: 'translateY(-20px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              slideLeft: {
+                '0%': { transform: 'translateX(20px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              slideRight: {
+                '0%': { transform: 'translateX(-20px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0.9)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              },
+              scaleOut: {
+                '0%': { transform: 'scale(1.1)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+            },
+            aspectRatio: {
+              'portrait': '3/4',
+              'landscape': '4/3',
+              'ultrawide': '21/9',
+            },
+          },
+        },
+        variants: {
+          extend: {
+            opacity: ['disabled'],
+            cursor: ['disabled'],
+            backgroundColor: ['active', 'disabled'],
+            textColor: ['active', 'disabled'],
+          },
+        },
+      }
+    });
+  </script>
+  <script src="../script.js"></script>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="icon" type="image/x-icon" href="img/ico.ico">
+
   <style>
-    body,
-    html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: Poppins, sans-serif, Inter, system-ui, sans-serif;
     }
 
     body {
-      background-image: url(img/bg.png);
-      background-size: cover;
-      box-shadow: inset 0 0 20vmin 0 #585247;
+      font-family: Nunito, sans-serif, Inter, system-ui, sans-serif;
     }
-
-    .wrap {
-      position: relative;
-      width: 80vmin;
-      height: 80vmin;
-      background: none;
-      transform: scale(0.2) translateZ(0px);
-      opacity: 0;
-      transition: transform .5s, opacity .5s;
-      margin: 0 auto;
-    }
-
-    a {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 47.5%;
-      height: 47.5%;
-      overflow: hidden;
-      transform: scale(.5) translateZ(0px);
-    }
-
-    a div {
-      height: 100%;
-      background-size: cover;
-      opacity: .5;
-      transition: opacity .5s;
-      border-radius: inherit;
-      background-color: #00000000;
-      color: rgb(0, 0, 0);
-      padding: 25%;
-      background: #dddddd;
-      opacity: 1;
-    }
-
-    a:nth-child(1) {
-      border-radius: 40vmin 0 0 0;
-      transform-origin: 110% 110%;
-      transition: transform .4s .15s;
-      
-    }
-
-    a:nth-child(1) div{
-      opacity: 0;
-      border: none;
-    }
-
-    a:nth-child(2) {
-      border-radius: 0 40vmin 0 0;
-      left: 52.5%;
-      transform-origin: -10% 110%;
-      transition: transform .4s .2s;
-      box-shadow: 0 0 0 5vmin rgb(0, 0, 0);
-    }
-
-    a:nth-child(2) div {
-      padding-top: 30%;
-    }
-
-
-    a:nth-child(3) {
-      border-radius: 0 0 0 40vmin;
-      top: 52.5%;
-      transform-origin: 110% -10%;
-      transition: transform .4s .25s;
-      box-shadow: 0 0 0 5vmin rgb(0, 0, 0);
-    }
-
-    a:nth-child(3) div {
-      padding-left: 45%;
-    }
-
-    a:nth-child(4) {
-      border-radius: 0 0 40vmin 0;
-      top: 52.5%;
-      left: 52.5%;
-      transform-origin: -10% -10%;
-      transition: transform .4s .3s;
-      box-shadow: 0 0 0 5vmin rgb(0, 0, 0);
-    }
-
-    a:nth-child(4) div {
-      padding-right: 50%;
-    }
-
-    a:nth-child(5) {
-      border-radius: 50vmin;
-      width: 55%;
-      height: 55%;
-      top: 22.5%;
-      left: 22.5%;
-      transform-origin: -10% -10%;
-      transform: scale(1);
-      box-shadow: 0 0 0 5vmin rgb(0, 0, 0);
-      
-    }
-
-    a:nth-child(5) div {
-      padding-left: 35%;
-    }
-
-    span {
-      position: relative;
-      display: block;
-      margin: 0 auto;
-      top: 45vmin;
-      width: 12vmin;
-      height: 12vmin;
-      border-radius: 100%;
-      background: #000000;
-      transform: translateZ(0px);
-    }
-
-    span span {
-      position: absolute;
-      width: 60%;
-      height: 3px;
-      background: #ffffff;
-      left: 20%;
-      top: 50%;
-      border-radius: 0;
-    }
-
-    span span:after,
-    span span:before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: -1.5vmin;
-      width: 100%;
-      height: 100%;
-      background: inherit;
-    }
-
-    span span:after {
-      top: 1.5vmin;
-    }
-
-    span:hover+.wrap,
-    .wrap:hover {
-      transform: scale(0.8) translateZ(0px);
-      opacity: 1;
-    }
-
-    span:hover+.wrap a,
-    .wrap:hover a {
-      transform: scale(1) translateZ(0px);
-    }
-
-
-
-    a:hover div {
-      opacity: 1;
-      transform: translateZ(0px);
-    }
-
-    
   </style>
-
 </head>
 
-<body>
-  <span><span></span></span>
-  <div class="wrap">
-    <a href="#">
-      <div></div>
-    </a>
-    <a href="about">
-      <div><h1 style="font-size: 70px;"><i class="fas fa-address-card" style="z-index: 100000000;"></i></h1></div>
-    </a>
-    <a href="projects">
-      <div><h1 style="font-size: 70px;"><i class="fas fa-building" style="z-index: 100000000;"></i></h1></div>
-    </a>
-    <a href="contact">
-      <div><h1 style="font-size: 70px;"><i class="fas fa-comment" style="z-index: 100000000;"></i></h1></div>
-    </a>
-    <a href="home" style="
-    top: 0px;
-    bottom: 0px;
-    right: 0px;
-    left: 0px;
-">
-      <div><h1 style="font-size: 70px;"><i class="fas fa-home" style="z-index: 100000000;"></i></h1></div>
-    </a>
+<body class="antialiased text-gray-800 min-h-screen flex flex-col">
+  <a href="#main-content"
+    class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-white focus:text-black">
+    Skip to main content
+  </a>
 
-  </div>
+  <main id="main-content" class="flex-1 relative h-full">
+  </main>
 
 </body>
 
 </html>
+<script>window.projectId = "e2417d00-37ad-4fae-a136-d8af4b68c8b8";</script>
+<div id='RolloutPageContent'>
+  <element id="1d0b4034-1e05-4eaa-87c2-7e754d3215fa" data-section-id="1d0b4034-1e05-4eaa-87c2-7e754d3215fa">
+    <div id="root">
+      <header id="header" class="bg-neutral-900 text-white">
+        <nav class="container mx-auto px-4 py-3 flex items-center justify-between" id="el-rasbyq0v">
+          <div class="flex items-center" id="el-9anijxsb">
+            <a href="#home" class="flex items-center" id="el-7h7j931s">
+              <img src="img/ub.png" alt="Upwan Infra Developers Logo" class="h-14" id="el-eh3eigcp">
+            </a>
+          </div>
+
+          <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none" aria-label="Toggle menu"
+            aria-expanded="false">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg" id="el-lcpdl9y8">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"
+                id="el-j13xqiad"></path>
+            </svg>
+          </button>
+
+          <ul class="hidden md:flex space-x-6 items-center" id="el-t7kgojmi">
+            <li id="el-r8loojdg"><a href="#home" class="text-white hover:text-gray-300 transition duration-300"
+                id="el-bg1sdnh4">Home</a></li>
+            <li id="el-cb3eftkz"><a href="#about" class="text-white hover:text-gray-300 transition duration-300"
+                id="el-pzbq52db">About</a></li>
+            <li id="el-bn2lbfh5"><a href="#projects" class="text-white hover:text-gray-300 transition duration-300"
+                id="el-ktonqfof">Projects</a></li>
+            <li id="el-2sxmwdxa"><a href="#services" class="text-white hover:text-gray-300 transition duration-300"
+                id="el-fohaxvlw">Services</a></li>
+            <li id="el-zrw8nl2r"><a href="#overview" class="text-white hover:text-gray-300 transition duration-300"
+                id="el-no990h8m">Overview</a></li>
+            <li id="el-7h174pse"><a href="#contact" class="text-white hover:text-gray-300 transition duration-300"
+                id="el-zpkqfs1k">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div id="mobile-menu" class="hidden bg-neutral-800 md:hidden">
+          <ul class="px-4 pt-2 pb-3 space-y-1" id="el-ja9rhjro">
+            <li id="el-7c8aa7b0"><a href="#home" class="block px-3 py-2 text-white hover:bg-neutral-700 rounded"
+                id="el-4hmg6dkh">Home</a></li>
+            <li id="el-9k0c4o0j"><a href="#about" class="block px-3 py-2 text-white hover:bg-neutral-700 rounded"
+                id="el-2at1i0no">About</a></li>
+            <li id="el-p9mce5tp">
+              <button id="mobile-projects-button"
+                class="flex justify-between items-center w-full px-3 py-2 text-white hover:bg-neutral-700 rounded">
+                Projects
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg" id="el-3ke1tfkh">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"
+                    id="el-71gbsse7"></path>
+                </svg>
+              </button>
+              <div id="mobile-projects-menu" class="hidden pl-4">
+                <a href="#highways" class="block px-3 py-2 text-white hover:bg-neutral-700 rounded"
+                  id="el-9hnrhuee">Highways</a>
+                <a href="#bridges" class="block px-3 py-2 text-white hover:bg-neutral-700 rounded"
+                  id="el-a87iv7aj">Bridges</a>
+                <a href="#buildings" class="block px-3 py-2 text-white hover:bg-neutral-700 rounded"
+                  id="el-2wubobkq">Buildings</a>
+              </div>
+            </li>
+            <li id="el-7w1bv2hv"><a href="#services" class="block px-3 py-2 text-white hover:bg-neutral-700 rounded"
+                id="el-2msytrzi">Services</a></li>
+            <li id="el-tcd0wqkt"><a href="#overview" class="block px-3 py-2 text-white hover:bg-neutral-700 rounded"
+                id="el-quh885y3">Overview</a></li>
+            <li id="el-uowj93f9"><a href="#contact" class="block px-3 py-2 text-white hover:bg-neutral-700 rounded"
+                id="el-xbbdggt8">Contact</a></li>
+          </ul>
+        </div>
+      </header>
+
+      <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+          const menu = document.getElementById('mobile-menu');
+          menu.classList.toggle('hidden');
+          this.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+        });
+
+        // Mobile projects submenu toggle
+        document.getElementById('mobile-projects-button').addEventListener('click', function () {
+          const submenu = document.getElementById('mobile-projects-menu');
+          submenu.classList.toggle('hidden');
+        });
+      </script>
+    </div>
+
+  </element>
+  <element id="1a6cf3f0-1d71-4341-8c9f-e4535d9ba64b" data-section-id="1a6cf3f0-1d71-4341-8c9f-e4535d9ba64b">
+
+
+
+    <div id="root">
+      <section id="hero" class="bg-neutral-900 text-white min-h-screen flex items-center relative overflow-hidden">
+        <div id="particles-js" class="absolute inset-0"></div>
+
+        <div class="container mx-auto px-4 py-16 z-10" id="el-kqax8098">
+          <div class="grid md:grid-cols-2 gap-8 items-center" id="el-9zp50wwt">
+            <div class="content animate__animated animate__fadeInLeft" id="el-uke2vsq3">
+              <h1 class="text-5xl md:text-6xl font-extrabold mb-4" id="el-37b8v1ai">
+                Upwan Infra D<span class="text-gray-500" id="el-r537901s">evelopers Pvt. Ltd.</span>
+              </h1>
+              <p class="text-3xl font-semibold my-6" id="el-ff87c61t">
+                We Build <span id="typing-text" class="text-gray-400"></span> and Dreams
+              </p>
+              <a href="#about"
+                class="inline-block mt-8 px-8 py-4 bg-indigo-900 hover:bg-indigo-800 rounded-full transition duration-300 shadow-lg"
+                id="el-cjhaqeun">
+                <span class="text-xl font-bold" id="el-9glg5h5a">About us</span>
+                <i class="fas fa-arrow-circle-down ml-2 transition-transform duration-300" id="el-20at3kc6"></i>
+              </a>
+
+              <div class="socials mt-16" id="el-4w6pmgqt">
+                <ul class="social-icons flex flex-wrap" id="el-jtv1srva">
+                  <li class="mr-3 mb-3" id="el-9oakal1e">
+                    <a class="linkedin flex items-center justify-center w-12 h-12 rounded-full bg-neutral-800 hover:bg-gray-500 transition duration-300"
+                      aria-label="LinkedIn" href="https://www.linkedin.com/in/nihal-awasthi-16a644251" target="_blank"
+                      id="el-tpv0gu3v">
+                      <i class="fab fa-linkedin" id="el-djklahph"></i>
+                    </a>
+                  </li>
+                  <li class="mr-3 mb-3" id="el-g2ov1f92">
+                    <a class="github flex items-center justify-center w-12 h-12 rounded-full bg-neutral-800 hover:bg-gray-500 transition duration-300"
+                      aria-label="GitHub" href="https://github.com/upwaninfra" target="_blank" id="el-82b6sf1z">
+                      <i class="fab fa-github" id="el-o93mtf3b"></i>
+                    </a>
+                  </li>
+                  <li class="mr-3 mb-3" id="el-7nzz6q42">
+                    <a class="instagram flex items-center justify-center w-12 h-12 rounded-full bg-neutral-800 hover:bg-gray-500 transition duration-300"
+                      aria-label="Instagram" href="https://www.instagram.com/upwan_infra_developers/" target="_blank" id="el-25dwel0c">
+                      <i class="fab fa-instagram" id="el-jtezynw4"></i>
+                    </a>
+                  </li>
+                  <li class="mr-3 mb-3" id="el-2iapayp4">
+                    <a href="mailto:nihalawasthi498@gmail.com" target="_blank"
+                      class="mail flex items-center justify-center w-12 h-12 rounded-full bg-neutral-800 hover:bg-gray-500 transition duration-300"
+                      aria-label="Mail" id="el-i2zqt2l3">
+                      <i class="fas fa-envelope" id="el-etjzixq6"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="image text-center animate__animated animate__fadeInRight" id="el-hox7jhi7">
+              <img class="mx-auto shadow-lg hover:shadow-xl transition duration-300" src="img/ub.png"
+                alt="Upwan Infra Developers Logo" draggable="false" id="el-zh0n6n9u">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          if (typeof Typed !== 'undefined') {
+            new Typed("#typing-text", {
+              strings: ["Highways", "Bridges", "Buildings"],
+              typeSpeed: 50,
+              backSpeed: 25,
+              backDelay: 500,
+              loop: true,
+            });
+          }
+      
+          // Particles.js initialization
+          particlesJS('particles-js', {
+            "particles": {
+              "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+              "color": { "value": "#ffffff" },
+              "shape": { "type": "circle" },
+              "opacity": { "value": 0.5 },
+              "size": { "value": 3, "random": true },
+              "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
+              "move": { "enable": true, "speed": 6 }
+            },
+            "interactivity": {
+              "detect_on": "canvas",
+              "events": {
+                "onhover": { "enable": true, "mode": "repulse" },
+                "onclick": { "enable": true, "mode": "push" }
+              },
+              "modes": {
+                "repulse": { "distance": 200, "duration": 0.4 },
+                "push": { "particles_nb": 4 }
+              }
+            },
+            "retina_detect": true
+          });
+      
+          // Vanilla Tilt for 3D effect on the image
+          VanillaTilt.init(document.querySelector(".image img"), {
+            max: 10,
+            speed: 300,
+            glare: true,
+            "max-glare": 0.1
+          });
+        });
+      </script>
+      
+      <style>
+        .image img {
+          max-width: 60%;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+      
+        .image img:hover {
+          transform: scale(1.05);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+      </style>
+      
+    </div>
+
+  </element>
+  <element id="795fe9b4-740d-433b-8d9b-867178da2b65" data-section-id="795fe9b4-740d-433b-8d9b-867178da2b65">
+    <div id="root">
+      <section id="about" class="bg-neutral-900 text-white py-16">
+        <div class="container mx-auto px-4" id="el-kli4aiho">
+          <h2 class="text-4xl font-extrabold text-center mb-12 animate__animated animate__fadeIn" id="el-bttvoyfy">
+            <i class="fas fa-user-alt mr-2" id="el-sb92vqsf"></i> About <span class="text-gray-500"
+              id="el-vyrcsopm">Us</span>
+          </h2>
+
+          <div class="flex flex-col md:flex-row items-center gap-8" id="el-mx1spes7">
+            <div class="w-full md:w-1/2 text-center animate__animated animate__fadeInLeft" id="el-uhet8jm7">
+              <img src="img/ub.png" alt="Upwan Infra Logo"
+                class="w-48 h-auto mx-auto rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 mb-8"
+                draggable="false" id="el-btuqpvmt">
+              <h2 class="text-5xl font-bold mb-2" id="el-uturrw8m">Upwan Infra</h2>
+              <h3 class="text-3xl font-semibold text-gray-500" id="el-srrro3fh">Developers Pvt. Ltd.</h3>
+            </div>
+
+            <div class="w-full md:w-1/2 animate__animated animate__fadeInRight" id="el-08ebw57r">
+
+
+
+              <p class="text-base mb-6" id="el-y8a1qc8b">
+                Welcome to UPWAN Infrastructure Pvt Ltd, a construction company with a passion for
+                excellence and a commitment to delivering top-notch construction projects across India.
+                Since our inception in 2017, our mission has been to provide high-quality solutions
+                tailored to our clients' needs, ensuring exceptional results in every project we
+                undertake. With a team of seasoned construction professionals, we bring years of
+                industry expertise, dedication, and innovation to each endeavor.
+              </p>
+
+              <div class="bg-neutral-800 p-4 rounded-lg mb-8" id="el-6vatacs5">
+                <p class="text-base mb-2" id="el-ubo9y3ee">
+                  <span class="text-blue-500 font-semibold" id="el-qv4qybfz">email: </span> info@upwaninfra.com
+                </p>
+                <p class="text-base" id="el-8uze4v6w">
+                  <span class="text-blue-500 font-semibold" id="el-hytxowp7">place: </span> Indore, India - 452018
+                </p>
+              </div>
+
+              <div class="text-center md:text-left" id="el-2yyb047q">
+                <a href="../about" target="_blank"
+                  class="inline-block px-6 py-3 bg-indigo-900 hover:bg-indigo-800 rounded-md transition duration-300"
+                  id="el-27idi2bc">
+                  <span class="text-lg font-semibold" id="el-wt499ixk">More Info</span>
+                  <i class="fas fa-chevron-right ml-2 transition-transform duration-300 group-hover:translate-x-1"
+                    id="el-6xj4450s"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <script>
+        // Initialize vanilla tilt effect on the image
+        document.addEventListener('DOMContentLoaded', function () {
+          VanillaTilt.init(document.querySelector("#about img"), {
+            max: 15,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2,
+          });
+
+          // Initialize scroll reveal for animated entrance
+          ScrollReveal().reveal('#about .container', {
+            delay: 200,
+            distance: '20px',
+            origin: 'bottom',
+            duration: 800,
+            easing: 'ease-in-out'
+          });
+        });
+      </script>
+    </div>
+
+  </element>
+  <element id="2eb185ed-643b-42fe-87b0-d6697485736e" data-section-id="2eb185ed-643b-42fe-87b0-d6697485736e">
+
+
+
+    <div id="root">
+      <section id="projects" class="bg-neutral-900 text-white py-16">
+        <div class="container mx-auto px-4" id="el-qg64w507">
+          <h2 class="text-4xl font-extrabold text-center mb-12 animate__animated animate__fadeIn" id="el-1lha4hvj">
+            <i class="fas fa-project-diagram mr-2" id="el-r7mog1po"></i> Proj<span class="text-gray-500"
+              id="el-eddnlpny">ects</span>
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto animate__animated animate__fadeInUp"
+            id="el-6r6kzhmt">
+            <div
+              class="bg-neutral-800 border border-gray-600 rounded-lg overflow-hidden hover:shadow-lg hover:shadow-white/20 transition-all duration-300 transform hover:-translate-y-2"
+              id="el-modmx0ye">
+              <a href="../projects/#Bridges" class="block" id="el-5b21tbx7">
+                <div class="overflow-hidden" id="el-jo09bqki">
+                  <img src="img/b.jpeg" alt="Bridges"
+                    class="w-full h-56 object-cover transform hover:scale-110 transition-transform duration-500"
+                    id="el-n2hb58mh">
+                </div>
+                <div class="p-6" id="el-eb09tkbe">
+                  <h3 class="text-2xl font-bold mb-2 flex items-center justify-between" id="el-4neaii26">
+                    Bridges
+                    <i class="fas fa-chevron-right transition-transform duration-300 group-hover:translate-x-1"
+                      id="el-qa7qb2n9"></i>
+                  </h3>
+                  <p class="text-gray-300 text-sm" id="el-5l231er2">
+                    Expert bridge construction with precision engineering and innovative designs for all terrains.
+                  </p>
+                </div>
+              </a>
+            </div>
+
+            <div
+              class="bg-neutral-800 border border-gray-600 rounded-lg overflow-hidden hover:shadow-lg hover:shadow-white/20 transition-all duration-300 transform hover:-translate-y-2"
+              id="el-krteilk5">
+              <a href="../projects/#Highways" class="block" id="el-wh0mg7yt">
+                <div class="overflow-hidden" id="el-e9hi6ucx">
+                  <img src="img/hi.jpg" alt="Highways"
+                    class="w-full h-56 object-cover transform hover:scale-110 transition-transform duration-500"
+                    id="el-xtow0v1i">
+                </div>
+                <div class="p-6" id="el-tw2vl5ng">
+                  <h3 class="text-2xl font-bold mb-2 flex items-center justify-between" id="el-fu2hyar5">
+                    Highways
+                    <i class="fas fa-chevron-right transition-transform duration-300 group-hover:translate-x-1"
+                      id="el-c5a9dq80"></i>
+                  </h3>
+                  <p class="text-gray-300 text-sm" id="el-abocrzde">
+                    State-of-the-art highway infrastructure with durability and superior performance.
+                  </p>
+                </div>
+              </a>
+            </div>
+
+            <div
+              class="bg-neutral-800 border border-gray-600 rounded-lg overflow-hidden hover:shadow-lg hover:shadow-white/20 transition-all duration-300 transform hover:-translate-y-2"
+              id="el-4kqe8tal">
+              <a href="../projects/#Buildings" class="block" id="el-80c6c2tj">
+                <div class="overflow-hidden" id="el-haqoyfsa">
+                  <img src="img/bi.jpg" alt="Buildings"
+                    class="w-full h-56 object-cover transform hover:scale-110 transition-transform duration-500"
+                    id="el-ee364sxg">
+                </div>
+                <div class="p-6" id="el-72yuqbas">
+                  <h3 class="text-2xl font-bold mb-2 flex items-center justify-between" id="el-adba3tar">
+                    Buildings
+                    <i class="fas fa-chevron-right transition-transform duration-300 group-hover:translate-x-1"
+                      id="el-ory051bf"></i>
+                  </h3>
+                  <p class="text-gray-300 text-sm" id="el-9972sbsl">
+                    Modern architectural excellence with sustainable and innovative building solutions.
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="text-center mt-12" id="el-6v2s3zjf">
+            <a href="../projects" target="_blank"
+              class="inline-block px-8 py-3 bg-neutral-800 hover:bg-neutral-700 border border-gray-600 rounded-md transition duration-300 group animate__animated animate__fadeIn animate__delay-1s"
+              id="el-dxjr546a">
+              <span class="text-xl font-semibold" id="el-rt34fn0h">View all projects</span>
+              <i class="fas fa-chevron-right ml-2 transition-transform duration-300 group-hover:translate-x-1"
+                id="el-axqf468c"></i>
+            </a>
+          </div>
+        </div>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            // Initialize scroll reveal for animated entrance
+            ScrollReveal().reveal('#projects .container', {
+              delay: 200,
+              distance: '20px',
+              origin: 'bottom',
+              duration: 800,
+              easing: 'ease-in-out'
+            });
+
+            // Card hover effects
+            const projectCards = document.querySelectorAll('#projects .grid > div');
+            projectCards.forEach(card => {
+              card.addEventListener('mouseenter', function () {
+                this.querySelector('i.fa-chevron-right').classList.add('translate-x-1');
+              });
+
+              card.addEventListener('mouseleave', function () {
+                this.querySelector('i.fa-chevron-right').classList.remove('translate-x-1');
+              });
+            });
+          });
+        </script>
+      </section>
+    </div>
+
+  </element>
+  <element id="aba532e6-ed01-4b7a-8cd6-2c570246f539" data-section-id="aba532e6-ed01-4b7a-8cd6-2c570246f539">
+
+
+
+    <div id="root">
+      <section id="services" class="bg-neutral-900 text-white py-16">
+        <div class="container mx-auto px-4" id="el-lz437iv8">
+          <h2 class="text-4xl font-extrabold text-center mb-12 animate__animated animate__fadeIn" id="el-nks6dr77">
+            <i class="fas fa-cogs mr-2" id="el-ui6ptsxg"></i> Our <span class="text-gray-500"
+              id="el-qemo46b1">Services</span>
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto" id="el-g8pdhq7o">
+            <div
+              class="bg-neutral-800 rounded-lg p-6 hover:bg-neutral-700 transition-all duration-300 transform hover:-translate-y-2 animate__animated animate__fadeInUp"
+              id="el-nh22j3uq">
+              <div class="text-center mb-4" id="el-onqkxf37">
+                <div
+                  class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-indigo-900 text-white text-2xl mb-4"
+                  id="el-n4kvca6q">
+                  <i class="fas fa-road" id="el-b7o5ie0l"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2" id="el-dvf4q2ld">Highway Construction</h3>
+              </div>
+              <p class="text-gray-300 text-sm" id="el-i7m127ln">
+                We specialize in building state-of-the-art highways that connect cities and communities.
+                Our expert team delivers durable roads that withstand heavy traffic and harsh weather conditions.
+              </p>
+              <ul class="mt-4 text-gray-300 text-sm" id="el-14sxtsyx">
+                <li class="flex items-start mb-2" id="el-4bu1pf4r">
+                  <i class="fas fa-check-circle text-indigo-400 mt-1 mr-2" id="el-btsb8icc"></i>
+                  <span id="el-vt53tgh9">National highways and expressways</span>
+                </li>
+                <li class="flex items-start mb-2" id="el-6ntggvwf">
+                  <i class="fas fa-check-circle text-indigo-400 mt-1 mr-2" id="el-wsyvhezv"></i>
+                  <span id="el-2ibwlvf0">Multi-lane road networks</span>
+                </li>
+                <li class="flex items-start" id="el-oz8rwnvh">
+                  <i class="fas fa-check-circle text-indigo-400 mt-1 mr-2" id="el-ynkxaioj"></i>
+                  <span id="el-fofgvhln">Highway maintenance and rehabilitation</span>
+                </li>
+              </ul>
+            </div>
+
+            <div
+              class="bg-neutral-800 rounded-lg p-6 hover:bg-neutral-700 transition-all duration-300 transform hover:-translate-y-2 animate__animated animate__fadeInUp animate__delay-1s"
+              id="el-4ah13q9b">
+              <div class="text-center mb-4" id="el-6yyxi0yl">
+                <div
+                  class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-indigo-900 text-white text-2xl mb-4"
+                  id="el-u2925jiw">
+                  <i class="fas fa-archway" id="el-edi0y3u8"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2" id="el-s0l6russ">Bridge Engineering</h3>
+              </div>
+              <p class="text-gray-300 text-sm" id="el-72phmnad">
+                From small river crossings to major suspension bridges, we design and build structures that
+                are both functional and aesthetically pleasing, ensuring safety and longevity.
+              </p>
+              <ul class="mt-4 text-gray-300 text-sm" id="el-jxy5qnsd">
+                <li class="flex items-start mb-2" id="el-gtnluzb1">
+                  <i class="fas fa-check-circle text-indigo-400 mt-1 mr-2" id="el-pjjtsndw"></i>
+                  <span id="el-5avel1m0">Concrete and steel bridges</span>
+                </li>
+                <li class="flex items-start mb-2" id="el-tlkpu0nr">
+                  <i class="fas fa-check-circle text-indigo-400 mt-1 mr-2" id="el-2mmub4r9"></i>
+                  <span id="el-l9jioltk">Cable-stayed and suspension bridges</span>
+                </li>
+                <li class="flex items-start" id="el-kbfw6p1n">
+                  <i class="fas fa-check-circle text-indigo-400 mt-1 mr-2" id="el-8do87m5e"></i>
+                  <span id="el-upyybfy2">Bridge inspection and renovation</span>
+                </li>
+              </ul>
+            </div>
+
+            <div
+              class="bg-neutral-800 rounded-lg p-6 hover:bg-neutral-700 transition-all duration-300 transform hover:-translate-y-2 animate__animated animate__fadeInUp animate__delay-2s"
+              id="el-cxcer3sw">
+              <div class="text-center mb-4" id="el-x9z9ltml">
+                <div
+                  class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-indigo-900 text-white text-2xl mb-4"
+                  id="el-uytl9159">
+                  <i class="fas fa-building" id="el-1ysb2ti2"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2" id="el-w7jy28be">Commercial Construction</h3>
+              </div>
+              <p class="text-gray-300 text-sm" id="el-99cie8ut">
+                We create impressive commercial structures that blend functionality with striking design.
+                Our buildings are constructed with attention to detail and adherence to timelines.
+              </p>
+              <ul class="mt-4 text-gray-300 text-sm" id="el-fncctapw">
+                <li class="flex items-start mb-2" id="el-aw9s9tnz">
+                  <i class="fas fa-check-circle text-indigo-400 mt-1 mr-2" id="el-hiqm8rqy"></i>
+                  <span id="el-1bt6bvt5">Office complexes and corporate headquarters</span>
+                </li>
+                <li class="flex items-start mb-2" id="el-0312pxyr">
+                  <i class="fas fa-check-circle text-indigo-400 mt-1 mr-2" id="el-qyqdouer"></i>
+                  <span id="el-moaltolh">Retail spaces and shopping centers</span>
+                </li>
+                <li class="flex items-start" id="el-dxs5yu51">
+                  <i class="fas fa-check-circle text-indigo-400 mt-1 mr-2" id="el-y1id00lt"></i>
+                  <span id="el-lds50oa6">Industrial facilities and warehouses</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <div class="text-center mt-12" id="el-w28e43n3">
+            <a href="#contact"
+              class="inline-block px-8 py-3 bg-indigo-900 hover:bg-indigo-800 rounded-md transition duration-300 group animate__animated animate__fadeIn animate__delay-3s"
+              id="el-5iv12git">
+              <span class="text-lg font-semibold" id="el-cuaggulb">Get in touch</span>
+              <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"
+                id="el-z8rkukm1"></i>
+            </a>
+          </div>
+        </div>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            // Initialize scroll reveal for animated entrance
+            ScrollReveal().reveal('#services .container', {
+              delay: 200,
+              distance: '20px',
+              origin: 'bottom',
+              duration: 800,
+              easing: 'ease-in-out'
+            });
+          });
+        </script>
+      </section>
+    </div>
+
+  </element>
+  <element id="68a00eb2-f86e-41da-96b9-dded77a247c2" data-section-id="68a00eb2-f86e-41da-96b9-dded77a247c2">
+
+
+
+    <div id="root">
+
+    </div>
+
+  </element>
+  <element id="10115f9e-c9c7-4bcd-9494-ae5f3b5e4a7a" data-section-id="10115f9e-c9c7-4bcd-9494-ae5f3b5e4a7a">
+
+
+
+    <div id="root">
+      <section id="overview" class="bg-neutral-900 text-white py-16">
+        <div class="container mx-auto px-4" id="el-gy33kjxm">
+          <h2 class="text-4xl font-extrabold text-center mb-12 animate__animated animate__fadeIn" id="el-8fsgftr6">
+            <i class="fas fa-chart-line mr-2" id="el-sl4q80t0"></i> Company <span class="text-gray-500"
+              id="el-kn8jouy2">Overview</span>
+          </h2>
+
+          <div class="flex flex-col lg:flex-row items-center gap-8 mb-16" id="el-lm84wl76">
+            <div class="w-full lg:w-1/2 animate__animated animate__fadeInLeft" id="el-6n1kn8b3">
+              <p class="text-lg mb-6" id="el-fja4oqcn">
+                Since our inception in 2017, UPWAN Infrastructure Pvt Ltd has established itself as a premier
+                infrastructure development company in India. We specialize in constructing highways, bridges, and
+                commercial buildings that stand the test of time.
+              </p>
+              <p class="text-lg mb-6" id="el-gexuu48l">
+                Our team of experienced engineers, architects, and construction professionals brings decades of combined
+                expertise to each project. We pride ourselves on delivering high-quality infrastructure solutions that
+                meet and exceed client expectations.
+              </p>
+              <p class="text-lg" id="el-gborbr3f">
+                With a commitment to innovation, sustainability, and excellence, we continue to shape the infrastructure
+                landscape across India, contributing to the nation's development and growth.
+              </p>
+            </div>
+
+            <div class="w-full lg:w-1/2 animate__animated animate__fadeInRight" id="el-cpoiock8">
+              <div class="bg-neutral-800 p-6 rounded-lg shadow-lg border border-gray-700" id="el-uc6zvx3y">
+                <h3 class="text-2xl font-bold mb-4 text-center" id="el-hcmtu6b2">Key Statistics</h3>
+
+                <div class="grid grid-cols-2 gap-4" id="el-zjoit4bq">
+                  <div class="text-center p-4 bg-neutral-700 rounded-lg" id="el-5098tbzj">
+                    <div class="text-4xl font-bold text-indigo-400 mb-2 counter" data-count="1" id="el-y7qg3gc0">30+
+                    </div>
+                    <p class="text-gray-300" id="el-jzrk6c1r">Projects Completed</p>
+                  </div>
+
+                  <div class="text-center p-4 bg-neutral-700 rounded-lg" id="el-r3cgft9b">
+                    <div class="text-4xl font-bold text-indigo-400 mb-2 counter" data-count="1" id="el-tcyrbiyu">2</div>
+                    <p class="text-gray-300" id="el-hgwdkbun">Indian States Covered</p>
+                  </div>
+
+                  <div class="text-center p-4 bg-neutral-700 rounded-lg" id="el-97i1y85p">
+                    <div class="text-4xl font-bold text-indigo-400 mb-2 counter" data-count="1" id="el-p2udmh29"
+                      contenteditable="false">50+</div>
+                    <p class="text-gray-300" id="el-fhy1acid">Team Members</p>
+                  </div>
+
+                  <div class="text-center p-4 bg-neutral-700 rounded-lg" id="el-9o6no5ow">
+                    <div class="text-4xl font-bold text-indigo-400 mb-2 counter" data-count="1" id="el-tcabedyd">8+
+                    </div>
+                    <p class="text-gray-300" id="el-23wkh0sf">Years of Excellence</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-container flex flex-col lg:flex-row gap-8 mb-12" id="el-6ito8j3q">
+            <div class="table-container w-full lg:w-7/10" id="el-m24zyn9i">
+              <div class="bg-neutral-800 rounded-lg overflow-hidden border border-gray-700" id="el-aqezmuwl">
+                <table class="w-full" id="el-5pq5b5lx">
+                  <thead id="el-3pxqh84t">
+                    <tr class="bg-neutral-700" id="el-gxxlm5c5">
+                      <th class="py-3 px-4 text-left" id="el-41mkrl83">Project Type</th>
+                      <th class="py-3 px-4 text-left" id="el-4xn4bjl3">Projects Completed</th>
+                      <th class="py-3 px-4 text-left" id="el-wvqtvq4x">Ongoing Projects</th>
+                      <th class="py-3 px-4 text-left" id="el-yzcp9r27">Average Completion Time</th>
+                    </tr>
+                  </thead>
+                  <tbody id="el-5xqvvwaf">
+                    <tr class="border-t border-gray-700" id="el-yqe8keii">
+                      <td class="py-3 px-4" id="el-u06xk03r">Highways</td>
+                      <td class="py-3 px-4" id="el-kg2thi5o">6</td>
+                      <td class="py-3 px-4" id="el-oss5e8qp">5</td>
+                      <td class="py-3 px-4" id="el-f3qvo1qm">8 months</td>
+                    </tr>
+                    <tr class="border-t border-gray-700" id="el-cii8md9d">
+                      <td class="py-3 px-4" id="el-m697dado">Bridges</td>
+                      <td class="py-3 px-4" id="el-o0asuxpz">22</td>
+                      <td class="py-3 px-4" id="el-lw72gp5z">3</td>
+                      <td class="py-3 px-4" id="el-f05kmq57">6 months</td>
+                    </tr>
+                    <tr class="border-t border-gray-700" id="el-ftm84kpr">
+                      <td class="py-3 px-4" id="el-eqjv0fyy">Commercial Buildings</td>
+                      <td class="py-3 px-4" id="el-uf3f2xlu">5</td>
+                      <td class="py-3 px-4" id="el-4kj2ezrb">0</td>
+                      <td class="py-3 px-4" id="el-b75jh9ik">15 months</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="list-container w-full lg:w-3/10" id="el-cm7bvg4d">
+              <div class="bg-neutral-800 p-6 rounded-lg h-full border border-gray-700" id="el-dn6qpuv6">
+                <h3 class="text-xl font-bold mb-4" id="el-n9282w4m">Service Locations</h3>
+                <ul class="space-y-2" id="el-t6bc30lh">
+                  <li class="flex items-center" id="el-sf78yu3u">
+                    <i class="fas fa-map-marker-alt text-indigo-400 mr-2" id="el-vvlxvhb9"></i>
+                    <span id="el-xvd6y9ef">Madhya Pradesh</span>
+                  </li>
+                  <li class="flex items-center" id="el-dtyg5g1e">
+                    <i class="fas fa-map-marker-alt text-indigo-400 mr-2" id="el-t72fy1ou"></i>
+                    <span id="el-hrzn999y">Uttar Pradesh</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center" id="el-c908gxzw">
+            <a href="#contact"
+              class="inline-block px-8 py-3 bg-indigo-900 hover:bg-indigo-800 rounded-md transition duration-300 group animate__animated animate__fadeIn"
+              id="el-qr8sxylu">
+              <span class="text-lg font-semibold" id="el-5pjoekhd">Contact Us for More Information</span>
+              <i class="fas fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"
+                id="el-s6qryc3q"></i>
+            </a>
+          </div>
+        </div>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            // Initialize scroll reveal for animated entrance
+            ScrollReveal().reveal('#overview .container', {
+              delay: 200,
+              distance: '20px',
+              origin: 'bottom',
+              duration: 800,
+              easing: 'ease-in-out'
+            });
+          });
+        </script>
+      </section>
+    </div>
+
+  </element>
+  <element id="a01fdabb-508f-4cdf-ac7a-f287df28dc36" data-section-id="a01fdabb-508f-4cdf-ac7a-f287df28dc36">
+
+
+
+    <div id="root">
+      <section id="contact" class="bg-neutral-900 text-white py-16">
+        <div class="container mx-auto px-4" id="el-ijp1gt68">
+          <h2 class="text-4xl font-extrabold text-center mb-4 animate__animated animate__fadeIn" id="el-yiswzmys">
+            <i class="fas fa-envelope mr-2" id="el-qhi9brqt"></i> Get in <span class="text-gray-500"
+              id="el-qcvjzlty">Touch</span>
+          </h2>
+
+          <p class="text-center text-gray-400 mb-12 max-w-3xl mx-auto" id="el-2oj3beob">
+            Have a project in mind or want to learn more about our services? We'd love to hear from you.
+            Fill out the form below and our team will get back to you promptly.
+          </p>
+
+          <div class="max-w-5xl mx-auto bg-neutral-800 rounded-lg overflow-hidden shadow-lg" id="el-wjvs1ao8">
+            <div class="flex flex-col md:flex-row" id="el-un270eef">
+              <!-- Contact Form -->
+              <div class="w-full md:w-7/12 p-8" id="el-dmrbmol5">
+                <form id="contactForm" class="space-y-6">
+                  <div class="form-group" id="el-vdqb1f0w">
+                    <div class="field relative" id="el-3m83om0v">
+                      <input type="text" name="name" placeholder="Your Name" required=""
+                        class="w-full bg-neutral-700 border border-gray-600 rounded-md py-3 px-4 pl-12 text-white placeholder-gray-400 focus:border-indigo-500 focus:outline-none"
+                        id="el-2v4bwcj0">
+                      <i class="fas fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
+                        id="el-1ucgkwpe"></i>
+                    </div>
+                  </div>
+
+                  <div class="form-group" id="el-9gv2bhvc">
+                    <div class="field relative" id="el-kunf7u44">
+                      <input type="email" name="email" placeholder="Your Email" required=""
+                        class="w-full bg-neutral-700 border border-gray-600 rounded-md py-3 px-4 pl-12 text-white placeholder-gray-400 focus:border-indigo-500 focus:outline-none"
+                        id="el-zpgz8s6n">
+                      <i class="fas fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
+                        id="el-65zvjtky"></i>
+                    </div>
+                  </div>
+
+                  <div class="form-group" id="el-q2tu76tx">
+                    <div class="field relative" id="el-tj75cw1y">
+                      <input type="text" name="phone" placeholder="Your Phone Number"
+                        class="w-full bg-neutral-700 border border-gray-600 rounded-md py-3 px-4 pl-12 text-white placeholder-gray-400 focus:border-indigo-500 focus:outline-none"
+                        id="el-6p7mn1jf">
+                      <i class="fas fa-phone-alt absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
+                        id="el-njf6yzez"></i>
+                    </div>
+                  </div>
+
+                  <div class="form-group" id="el-4ltgpnry">
+                    <div class="field relative" id="el-o2px56q6">
+                      <input type="text" name="subject" placeholder="Subject" required=""
+                        class="w-full bg-neutral-700 border border-gray-600 rounded-md py-3 px-4 pl-12 text-white placeholder-gray-400 focus:border-indigo-500 focus:outline-none"
+                        id="el-18ur9miw">
+                      <i class="fas fa-book absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
+                        id="el-3436zgy4"></i>
+                    </div>
+                  </div>
+
+                  <div class="form-group" id="el-eecodu0x">
+                    <div class="message relative" id="el-111n1khc">
+                      <textarea name="message" placeholder="Your Message" required=""
+                        class="w-full bg-neutral-700 border border-gray-600 rounded-md py-3 px-4 pl-12 text-white placeholder-gray-400 focus:border-indigo-500 focus:outline-none resize-none"
+                        rows="5" id="el-jd0ofmfm"></textarea>
+                      <i class="fas fa-comment-alt absolute left-4 top-8 text-gray-400" id="el-lz3yswi5"></i>
+                    </div>
+                  </div>
+
+                  <div class="button-area" id="el-a2i55a71">
+                    <button type="submit"
+                      class="bg-indigo-900 hover:bg-indigo-800 text-white py-3 px-8 rounded-md transition duration-300 flex items-center"
+                      id="el-h5406bsr">
+                      <span class="text-base font-medium" id="el-usx0wy7a">Send Message</span>
+                      <i class="fas fa-paper-plane ml-2" id="el-ex7it99x"></i>
+                    </button>
+                    <span id="submitMessage" class="ml-4 hidden text-green-500">Message sent successfully!</span>
+                  </div>
+                </form>
+              </div>
+
+              <!-- Contact Information -->
+              <div class="w-full md:w-5/12 bg-neutral-900 p-8 flex flex-col justify-between" id="el-me63merr">
+                <div id="el-p4jk93hb">
+                  <h3 class="text-2xl font-bold mb-6" id="el-2x8koa2k">Contact Information</h3>
+
+                  <div class="space-y-4" id="el-48kvdgvt">
+                    <div class="flex items-start" id="el-cme7gsmv">
+                      <div class="w-10 h-10 rounded-full flex items-center justify-center bg-indigo-900 mr-4 mt-1"
+                        id="el-tmkjr4he">
+                        <i class="fas fa-map-marker-alt" id="el-fnte4hqe"></i>
+                      </div>
+                      <div id="el-uys16hc9">
+                        <h4 class="font-bold text-gray-300" id="el-29xehf0n">Office Location</h4>
+                        <p class="text-gray-400 mt-1" id="el-oy2m1ax5">Indore, India - 452018</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-start" id="el-m2l245vm">
+                      <div class="w-10 h-10 rounded-full flex items-center justify-center bg-indigo-900 mr-4 mt-1"
+                        id="el-5y3y6ckq">
+                        <i class="fas fa-phone-alt" id="el-sa2i1gv0"></i>
+                      </div>
+                      <div id="el-v4etziiy">
+                        <h4 class="font-bold text-gray-300" id="el-16yaenbt">Call Us</h4>
+                        <p class="text-gray-400 mt-1" id="el-5lb5um61">+91 635-048-6317</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-start" id="el-ohzax0vx">
+                      <div class="w-10 h-10 rounded-full flex items-center justify-center bg-indigo-900 mr-4 mt-1"
+                        id="el-y7upj3cd">
+                        <i class="fas fa-envelope" id="el-w9wpqmbn"></i>
+                      </div>
+                      <div id="el-9q7pdsw0">
+                        <h4 class="font-bold text-gray-300" id="el-7wwwsbgh">Email Us</h4>
+                        <p class="text-gray-400 mt-1" id="el-2wrofchi">info@upwaninfra.com</p>
+                      </div>
+                    </div>
+
+                    <div class="flex items-start" id="el-t4t71z22">
+                      <div class="w-10 h-10 rounded-full flex items-center justify-center bg-indigo-900 mr-4 mt-1"
+                        id="el-w0ifi4dg">
+                        <i class="fas fa-clock" id="el-s984aaij"></i>
+                      </div>
+                      <div id="el-2jm6k9d7">
+                        <h4 class="font-bold text-gray-300" id="el-abx7yr4h">Working Hours</h4>
+                        <p class="text-gray-400 mt-1" id="el-andjls6t">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-8" id="el-gkizgcer">
+                  <h4 class="font-bold text-xl mb-4" id="el-dsivgetg">Connect With Us</h4>
+                  <div class="flex space-x-3" id="el-y31ql9l5">
+                    <a href="https://www.linkedin.com/in/nihal-awasthi-16a644251" target="_blank"
+                      class="w-10 h-10 rounded-full flex items-center justify-center bg-neutral-800 hover:bg-indigo-900 transition duration-300"
+                      aria-label="LinkedIn" id="el-3zfdrej6">
+                      <i class="fab fa-linkedin-in" id="el-r1he05bq"></i>
+                    </a>
+                    <a href="https://github.com/upwaninfra" target="_blank"
+                      class="w-10 h-10 rounded-full flex items-center justify-center bg-neutral-800 hover:bg-indigo-900 transition duration-300"
+                      aria-label="GitHub" id="el-1f98ouzg">
+                      <i class="fab fa-github" id="el-139cy4oa"></i>
+                    </a>
+                    <a href="https://www.instagram.com/upwan_infra_developers/" target="_blank"
+                      class="w-10 h-10 rounded-full flex items-center justify-center bg-neutral-800 hover:bg-indigo-900 transition duration-300"
+                      aria-label="Instagram" id="el-m3lcb3fp">
+                      <i class="fab fa-instagram" id="el-mpj82uq8"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map Section -->
+          <div class="mt-16 max-w-5xl mx-auto" id="el-u9fy94yg">
+            <div class="bg-neutral-800 p-4 rounded-lg" id="el-pv8qdi39">
+              <h3 class="text-xl font-bold mb-4 text-center" id="el-9hbq5isi">Find Us On Map</h3>
+              <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden" id="el-kgkw5rer">
+                <!-- Google Maps iframe - Replace with actual location -->
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d234699.0845089192!2d75.69382556896474!3d22.72398577095519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fcad1b410ddb%3A0x96ec4da356240f4!2sIndore%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1644236079541!5m2!1sen!2sin"
+                  width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" class="rounded-lg"
+                  id="el-i2s3btxz"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            // Form submission handling
+            const contactForm = document.getElementById('contactForm');
+            const submitMessage = document.getElementById('submitMessage');
+
+            contactForm.addEventListener('submit', function (e) {
+              e.preventDefault();
+
+              // Simulating form submission
+              // In a real implementation, you would send the data to a server
+              setTimeout(function () {
+                // Reset form
+                contactForm.reset();
+
+                // Show success message
+                submitMessage.classList.remove('hidden');
+
+                // Hide success message after 3 seconds
+                setTimeout(function () {
+                  submitMessage.classList.add('hidden');
+                }, 3000);
+              }, 1000);
+            });
+
+            // Add focus and blur event listeners for form inputs
+            const formInputs = document.querySelectorAll('input, textarea');
+
+            formInputs.forEach(input => {
+              input.addEventListener('focus', function () {
+                this.parentElement.querySelector('i').classList.add('text-indigo-500');
+              });
+
+              input.addEventListener('blur', function () {
+                if (!this.value) {
+                  this.parentElement.querySelector('i').classList.remove('text-indigo-500');
+                }
+              });
+            });
+
+            // Initialize scroll reveal for animated entrance
+            ScrollReveal().reveal('#contact .container', {
+              delay: 200,
+              distance: '20px',
+              origin: 'bottom',
+              duration: 800,
+              easing: 'ease-in-out'
+            });
+          });
+        </script>
+      </section>
+    </div>
+
+  </element>
+  <element id="38611109-0c20-4688-8057-92aefff11a94" data-section-id="38611109-0c20-4688-8057-92aefff11a94">
+
+
+
+    <div id="root">
+      <footer id="footer" class="bg-neutral-900 text-white py-12">
+        <div class="container mx-auto px-4" id="el-1yb2e4cu">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="el-nyy50yhw" style="padding: 0px;">
+            <!-- Company Logo and Info -->
+            <div class="flex flex-col justify-center items-center md:items-start" id="el-6654tl6i">
+              <img src="img/img.png" alt="Upwan Infra Logo"
+                class="w-48 h-auto rounded-lg shadow-lg hover:shadow-xl left-1/2 transition duration-300 mb-4"
+                id="el-f8djrgx9">
+              <p class="text-gray-400 text-sm mt-4 text-center md:text-left" id="el-9183lh34">
+                Building excellence since 2017. Quality infrastructure for a growing India.
+              </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div id="el-89jscrex">
+              <h3 class="text-xl font-bold mb-4 border-b border-gray-700 pb-2" id="el-zj5dvgzf">Quick Links</h3>
+              <ul class="space-y-2" id="el-j2405r2a">
+                <li id="el-a8fw79ru">
+                  <a href="#home" class="text-gray-400 hover:text-white transition duration-300 flex items-center"
+                    id="el-v8an10ms">
+                    <i class="fas fa-chevron-circle-right mr-2 text-gray-500" id="el-pm0tz167"></i> Home
+                  </a>
+                </li>
+                <li id="el-p5n3kmos">
+                  <a href="#about" class="text-gray-400 hover:text-white transition duration-300 flex items-center"
+                    id="el-jj5wquvs">
+                    <i class="fas fa-chevron-circle-right mr-2 text-gray-500" id="el-8dzcm9is"></i> About
+                  </a>
+                </li>
+                <li id="el-gm70r5rk">
+                  <a href="#projects" class="text-gray-400 hover:text-white transition duration-300 flex items-center"
+                    id="el-q1ha4rh7">
+                    <i class="fas fa-chevron-circle-right mr-2 text-gray-500" id="el-gxwx9tj3"></i> Projects
+                  </a>
+                </li>
+                <li id="el-7d0eyse2">
+                  <a href="#services" class="text-gray-400 hover:text-white transition duration-300 flex items-center"
+                    id="el-jpya3v97">
+                    <i class="fas fa-chevron-circle-right mr-2 text-gray-500" id="el-3euuvm4i"></i> Services
+                  </a>
+                </li>
+                <li id="el-5ioj99a9">
+                  <a href="#contact" class="text-gray-400 hover:text-white transition duration-300 flex items-center"
+                    id="el-1eficwzz">
+                    <i class="fas fa-chevron-circle-right mr-2 text-gray-500" id="el-rjg1eqi3"></i> Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div id="el-jm24imsy">
+              <h3 class="text-xl font-bold mb-4 border-b border-gray-700 pb-2" id="el-0unw302k">Contact Info</h3>
+              <ul class="space-y-3" id="el-un8yx024">
+                <li class="flex items-start" id="el-g9oifvkd">
+                  <i class="fas fa-phone text-gray-500 mt-1 mr-3" id="el-idzj2rlc"></i>
+                  <span class="text-gray-400" id="el-m1wtd9uc">+91 635-048-6317</span>
+                </li>
+                <li class="flex items-start" id="el-lcl1631r">
+                  <i class="fas fa-envelope text-gray-500 mt-1 mr-3" id="el-a5no579n"></i>
+                  <a href="mailto:info@upwaninfra.com" class="text-gray-400 hover:text-white transition duration-300"
+                    id="el-1f6hku2h">info@upwaninfra.com</a>
+                </li>
+                <li class="flex items-start" id="el-gvacbx59">
+                  <i class="fas fa-map-marked-alt text-gray-500 mt-1 mr-3" id="el-xneluzja"></i>
+                  <span class="text-gray-400" id="el-i3ww519x">Indore, India - 452018</span>
+                </li>
+              </ul>
+
+              <div class="mt-6" id="el-bdv8rjkj">
+                <h4 class="text-lg font-semibold mb-3" id="el-r3lfo2au">Follow Us</h4>
+                <div class="flex space-x-3" id="el-0fucvgb8">
+                  <a href="https://www.linkedin.com/in/nihal-awasthi-16a644251" target="_blank"
+                    class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition duration-300"
+                    aria-label="LinkedIn" id="el-3xjno5i9">
+                    <i class="fab fa-linkedin-in" id="el-rj9jbxas"></i>
+                  </a>
+                  <a href="https://github.com/UpwanInfra" target="_blank"
+                    class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition duration-300"
+                    aria-label="GitHub" id="el-bbaw9t0d">
+                    <i class="fab fa-github" id="el-z0nz18sx"></i>
+                  </a>
+                  <a href="mailto:nihalawasthi498@gmail.com" target="_blank"
+                    class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition duration-300"
+                    aria-label="Mail" id="el-i2zqt2l3">
+                    <i class="fas fa-envelope" id="el-etjzixq6"></i>
+                  </a>
+                  <a href="https://www.instagram.com/upwan_infra_developers/" target="_blank"
+                    class="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition duration-300"
+                    aria-label="Instagram" id="el-ayiwabiv">
+                    <i class="fab fa-instagram" id="el-asxho4xn"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer Bottom -->
+          <div class="mt-12 pt-6 border-t border-gray-800" id="el-02lp5rs2">
+            <ul class="flex flex-wrap justify-center space-x-4 mb-4" id="el-rknwujqu">
+              <li id="el-dzh92x1m"><a href="#" class="text-gray-400 hover:text-white transition duration-300"
+                  id="el-wza1xv42">Upwan Infra Developers Pvt. Ltd. © 2017</a></li>
+              <li id="el-e5re482f"><a href="#privacy" class="text-gray-400 hover:text-white transition duration-300"
+                  id="el-6h5t56c7">Privacy &amp; Legal</a></li>
+              <li id="el-6cbd0l7t"><a href="#contact" class="text-gray-400 hover:text-white transition duration-300"
+                  id="el-yomtr7k2">Contact</a></li>
+              <li id="el-z2qmly38"><a href="mailto:info@upwaninfra.com"
+                  class="text-gray-400 hover:text-white transition duration-300" id="el-qg77ech7">Email</a></li>
+            </ul>
+
+            <p class="text-center text-gray-500 text-sm" id="el-b4qa5zvt">
+              Website Best Viewed in Google Chrome in 1920 X 1080 Screen Resolution
+            </p>
+          </div>
+        </div>
+
+        <!-- Scroll to top button -->
+        <button id="scroll-top"
+          class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-indigo-900 hover:bg-indigo-800 text-white flex items-center justify-center shadow-lg transition duration-300 focus:outline-none opacity-100"
+          aria-label="Scroll to top">
+          <i class="fas fa-angle-up text-xl" id="el-egta060f"></i>
+        </button>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            // Scroll to top functionality
+            const scrollTopButton = document.getElementById('scroll-top');
+
+            window.addEventListener('scroll', function () {
+              if (window.pageYOffset > 300) {
+                scrollTopButton.classList.add('opacity-100');
+                scrollTopButton.classList.remove('opacity-0');
+              } else {
+                scrollTopButton.classList.add('opacity-0');
+                scrollTopButton.classList.remove('opacity-100');
+              }
+            });
+
+            scrollTopButton.addEventListener('click', function () {
+              window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+              });
+            });
+          });
+        </script>
+      </footer>
+    </div>
+
+  </element>
+</div>
+<div id="page_complete">
+  <script src="/edit/edit.js"></script>
+  <script>
+    console.log('Page complete');
+    // Initialize hamburger menu functionality
+    document.addEventListener('DOMContentLoaded', function () {
+      // Initialize all hamburger menus on the page
+      const hamburgerButtons = document.querySelectorAll('.hamburger-menu, [aria-label="Toggle menu"], [data-toggle="menu"], .mobile-menu-button');
+
+      hamburgerButtons.forEach(button => {
+        if (button) {
+          button.addEventListener('click', function () {
+            // Find the related menu (common patterns in modern websites)
+            const menu = this.nextElementSibling ||
+              document.querySelector(this.getAttribute('data-target')) ||
+              document.querySelector('.mobile-menu, .menu-items, .nav-menu');
+
+            if (menu) {
+              // Toggle menu visibility
+              if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                this.setAttribute('aria-expanded', 'true');
+              } else {
+                menu.classList.add('hidden');
+                this.setAttribute('aria-expanded', 'false');
+              }
+
+              // Toggle hamburger button appearance if it has typical hamburger elements
+              const bars = this.querySelectorAll('div, span, .bar');
+              if (bars.length >= 2) {
+                this.classList.toggle('active');
+              }
+            }
+          });
+        }
+      });
+
+      // Send a message to the parent frame to indicate content is ready
+      if (window.parent && window.parent !== window) {
+        window.parent.postMessage({ type: 'iframe-content-loaded' }, '*');
+      }
+    });
+  </script>
+  </body>
+
+  </html>
